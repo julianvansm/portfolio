@@ -12,16 +12,20 @@
 
     <div id="Home" class="top-0 w-0" style="height: 2px;"></div>
 
-    <div ref="intro" :class="{ transparent: this.transparentTitle === true}"
+    <div ref="intro"
          class="duration-300 sticky h-screen flex items-center justify-center z-0">
-      <div class=" flex max-sm:flex-col">
-        <div class="flex flex-col justify-center text-white px-2 text-center">
+      <div class="w-full h-full relative">
+        <div style="transform: translate(-50%, -50%)"
+             :style="{ transform: `translateY(-${this.aboutPos * 0.1}px, 50%)` }"
+             class="absolute top-1/2 left-1/2">
+          <div class="text-white px-2 text-center text-nowrap ">
 
-          <hgroup style="-webkit-text-stroke: 2px #000000; text-shadow: 2px 2px 2px black;"
-                  class=" max-sm:text-3xl text-4xl text-white">
-            <h1 class="text-5xl">Julian van Smirren</h1>
-            <h2 class="text-3xl">Software development</h2>
-          </hgroup>
+            <hgroup style="-webkit-text-stroke: 2px #000000; text-shadow: 2px 2px 2px black;"
+                    class=" max-sm:text-3xl text-4xl text-white">
+              <h1 class="text-5xl">Julian van Smirren</h1>
+              <h2 class="text-3xl">Software development</h2>
+            </hgroup>
+          </div>
         </div>
       </div>
     </div>
@@ -86,6 +90,13 @@ import ProjectCard from "./ProjectCard.vue";
 import ContactSection from "./ContactSection.vue";
 
 
+function debounce(func, delay) {
+  let timeout;
+  return (...args) => {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func.apply(this, args), delay);
+  };
+}
 export default defineComponent({
   data() {
     return {
@@ -139,13 +150,13 @@ export default defineComponent({
     ProjectCard,
   },
   mounted() {
-    window.addEventListener('scroll', () => {
+    const updateScrollPositions = debounce(() => { //use debounce for performance
       this.getProjectRect();
       this.getAboutRect();
       this.getContactRect();
+    }, 10);
 
-    });
-
+    window.addEventListener("scroll", updateScrollPositions);
   },
   setup() {
     const scrollPos = ref(0);
@@ -161,7 +172,7 @@ export default defineComponent({
       if (contact) {
         this.contactPos = contact.getBoundingClientRect().top;
       }
-      console.log(this.contactPos)
+      console.log(this.contactPos);
     },
     async getAboutRect() {
       const about = await this.$refs.about;
@@ -178,8 +189,8 @@ export default defineComponent({
     },
   },
 });
-
 </script>
+
 
 <style scoped>
 
