@@ -12,10 +12,10 @@
 
     <div id="Home" class="top-0 w-0" style="height: 2px;"></div>
 
-    <div ref="intro" :class="{ transparent: this.aboutPos < 500}"
-         class="duration-300 sticky mt-20 h-screen flex items-center justify-center z-0">
+    <div ref="intro" :class="{ transparent: this.transparentTitle === true}"
+         class="duration-300 sticky h-screen flex items-center justify-center z-0">
       <div class=" flex max-sm:flex-col">
-        <div class="flex flex-col justify-center text-white px-2 sm:mb-20 text-center">
+        <div class="flex flex-col justify-center text-white px-2 text-center">
 
           <hgroup style="-webkit-text-stroke: 2px #000000; text-shadow: 2px 2px 2px black;"
                   class=" max-sm:text-3xl text-4xl text-white">
@@ -25,41 +25,57 @@
         </div>
       </div>
     </div>
+    <div>
 
-    <div ref="about" :class="{ transparent: this.projectPos < 300 }"
-         class="sticky duration-500">
-      <div style="background: rgb(255, 255, 255);" class="box mask"></div>
-
-      <div class="about-wrapper duration-500 h-screen">
-        <AboutSection id="About"/>
+      <div ref="about"
+           class=" duration-500"
+      >
+        <div>
+          <div style="background: rgb(255, 255, 255);" class="box mask"></div>
+          <div class="about-wrapper  duration-500">
+            <AboutSection id="About"/>
+          </div>
+        </div>
       </div>
-    </div>
+      <div style="max-height: 70vh; " class="z-0 relative bg-gray-300">
+        <div class=" relative h-screen">
+          <img :style="{ transform: `translateY(clamp(-30%, calc(-${(this.projectPos / 1000 * 60 )/2}%), 0%))` }"
+               class="absolute top-0 opacity-35 w-screen" src="/images/software-bg.png" alt="noImg">
 
-    <div ref="project"
-        class="relative duration-1000 ">
-      <div class="relative" >
-        <div style="background: rgb(115, 115, 115);" class="box mask"></div>
-        <div class="project-list-wrapper">
-          <div class="sticky z-20">
-            <h2 class="text-6xl max-sm:text-5xl text-white text-center py-4"
-                style="background: rgb(115, 115, 115); -webkit-text-stroke: 1px #000000; text-shadow: 2px 2px 2px black;">
-              Projects
-            </h2>
-            <div style="background: rgb(115, 115, 115);" class="box mask last"></div>
-          </div>
-          <div class="project-card-wrapper min-h-screen ">
-            <ProjectCard v-for="project in projects" :key="project.title" :project="project"/>
-          </div>
+
+        </div>
+      <div style="background: rgb(255, 255, 255);" class=" box mask last absolute top-0 left-0 w-full h-full"></div>
+      <div style="background: rgb(255, 255, 255);" class="box mask absolute bottom-0 left-0 w-full h-full"></div>
+
+    </div>
+  </div>
+
+
+  <div ref="project"
+       class="relative duration-1000 ">
+    <div class="relative">
+      <div class="project-list-wrapper">
+        <div class="sticky z-20">
+          <h2 class="text-6xl max-sm:text-5xl text-white text-center py-4"
+              style="background: rgb(255, 255, 255); -webkit-text-stroke: 1px #000000; text-shadow: 2px 2px 2px black;">
+            Projects
+          </h2>
+          <div style="background: rgb(255, 255, 255);" class="box mask last"></div>
+        </div>
+        <div class="project-card-wrapper min-h-screen ">
+          <ProjectCard v-for="project in projects" :key="project.title" :project="project"/>
         </div>
       </div>
     </div>
 
-    <div ref="contact" class="">
-      <div class="contact-wrapper duration-500">
-        <ContactSection id="Contact"/>
+  </div>
 
-      </div>
+  <div ref="" class="">
+    <div class="contact-wrapper duration-500">
+      <ContactSection id="Contact"/>
     </div>
+  </div>
+  <div ref="contact" class=""></div>
   </div>
 </template>
 
@@ -74,9 +90,10 @@ export default defineComponent({
   data() {
     return {
       scrollPos: 0,
-      aboutPos: null,
-      projectPos: null,
-      contactPos: null,
+      aboutPos: 0,
+      projectPos: 0,
+      contactPos: 0,
+      transparentTitle: false,
       projects: [
         {
           title: 'Portfolio',
@@ -126,6 +143,7 @@ export default defineComponent({
       this.getProjectRect();
       this.getAboutRect();
       this.getContactRect();
+
     });
 
   },
@@ -139,20 +157,21 @@ export default defineComponent({
 
   methods: {
     async getContactRect() {
-      const contact = this.$refs.contact;
+      const contact = await this.$refs.contact;
       if (contact) {
         this.contactPos = contact.getBoundingClientRect().top;
       }
-    console.log(this.contactPos)
+      console.log(this.contactPos)
     },
-    getAboutRect() {
-      const about = this.$refs.about;
+    async getAboutRect() {
+      const about = await this.$refs.about;
       if (about) {
         this.aboutPos = about.getBoundingClientRect().top;
       }
+      this.transparentTitle = this.aboutPos < 500;
     },
-    getProjectRect() {
-      const project = this.$refs.project;
+    async getProjectRect() {
+      const project = await this.$refs.project;
       if (project) {
         this.projectPos = project.getBoundingClientRect().top;
       }
@@ -184,17 +203,20 @@ div.sticky {
   background: rgb(255, 255, 255);
 
 }
-.project-card-wrapper{
+
+.project-card-wrapper {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
 }
+
 .project-list-wrapper {
   z-index: 20;
   position: sticky;
   top: 0;
-  background: rgb(115, 115, 115);
+  background: rgb(255, 255, 255);
 }
+
 .contact-wrapper {
   z-index: 30;
   display: flex;
@@ -202,27 +224,9 @@ div.sticky {
   justify-content: space-around;
 
 }
-.box {
-  --size: 5px;
-  --p: 3px;
-  --R: 5.5px;
 
-  height: 20px;
-
+.move-img {
+  transform: translateY(-30%);
 }
 
-.box + .box {
-  background-repeat: repeat-x;
-
-}
-
-.box.mask {
-  -webkit-mask: radial-gradient(var(--R) at 50% calc(var(--size) + var(--p)), blue 99%, #0000 101%) calc(50% - 2 * var(--size)) 0/calc(4 * var(--size)) 100%,
-  radial-gradient(var(--R) at 50% calc(-1 * var(--p)), #0000 99%, red 101%) 50% var(--size)/calc(4 * var(--size)) 100% repeat-x;
-}
-
-.box.last {
-  transform: rotate(180deg);
-  filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.5));
-}
 </style>
