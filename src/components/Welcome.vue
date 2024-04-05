@@ -40,7 +40,7 @@
       <div style="max-height: 70vh; " class="z-0 relative bg-gray-300">
         <div class=" relative h-screen">
           <img :style="{ transform: `translateY(clamp(-30%, calc(-${(this.projectPos / 1000 * 60 )/2}%), 0%))` }"
-               class="absolute top-0 opacity-35 w-screen" src="/images/software-bg.png" alt="noImg">
+               class="absolute top-0 h-screen w-screen object-cover overflow-hidden" src="/images/software-bg.png" alt="noImg">
 
 
         </div>

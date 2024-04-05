@@ -17,17 +17,21 @@
      </div>
     </div>
     <div class="font-semibold font-sans flex flex-col justify-evenly items-center mb-4">
-      <div class=" p-4 sm:p-2" style="max-width: 1002px;">
+      <div class=" p- sm:p-2" style="max-width: 1002px;">
         <hgroup
                 class="duration-200  text-3xl max-sm:text-xl">
-          <h2 class="mb-2"> I am Julian van Smirren, a first-year software development student at Landstede,
-            born in April 2006. I possess a strong foundation in web development technologies like PHP
-            and JavaScript.
+          <h2 class="mb-6">
+            I'm Julian van Smirren, a first-year software development student at Landstede (born April 2006).
+            My passion for building things in the digital world is strong.
+            My interest in web development, particularly using technologies like PHP and JavaScript, is rapidly growing.
+
           </h2>
           <h3>
-            My passion for software development stems from a lifelong love of creation, both digital and physical.
-            This is reflected in my hobby of composing piano pieces. To complement my academic pursuits,
-            I gain valuable work experience and income through my role at a local grocery store.
+            This passion for creation extends beyond programming,
+            as evidenced by my dedication to composing piano pieces.
+            Along with my studies, I've been working at a local grocery store.
+            This job has given me some great hands-on skills and helped me learn how to work well in a busy place.
+
           </h3>
         </hgroup>
       </div>
