@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+html, body {
+    height: 100%;
+    margin: 0;
+    /*scroll-behavior: ;*/
+}
+
+body {
+    margin: 0;
+    background-image: linear-gradient(to right, rgb(73, 73, 73), rgb(28, 28, 28));
+    font-family: 'Paytone One', sans-serif;
+    overflow-y: scroll;
+
+}
+body::-webkit-scrollbar {
+    width: 10px;
+    background-color: rgba(12, 12, 12, 0.15);
+}
+
+
+body::-webkit-scrollbar-thumb {
+    border-radius: 10rem;
+    border: 1px solid #fff;
+    /* -webkit-box-shadow: inset -5px 0px 29px 0 #ec4896; */
+    background-color: rgba(255, 0, 0);
+}
+
+.about-container-color-extras {
+    background-color: #ffffff;
+    border-radius: 6px;
+    border: solid #ed0000 5px;
+    box-shadow: 6px 6px 5px 2px black;
+}
+
+.project-container-extra {
+    background-color: #989898;
+    width: 550px;
+    max-width: 550px;
+    min-height: 575px;
+    max-height: 575px;
+    box-shadow: 4px 4px 11px 1px;
+}
+
+@media screen and (max-width: 1000px) {
+    .about-container{
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 11px;
+        padding-right: 0px;
+    }
+    .about-text-container{
+        margin-right: 0;
+    }
+    .about-hey{
+         font-size: 23px;
+     }
+    .about-me{
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 760px) {
+
+    .greenbox {
+        flex-direction: column;
+    }
+    .textbox{
+        margin-left: 11px;
+        margin-right: 12px;
+    }
+    .home-text-title {
+        font-size: 23px;
+        -webkit-text-stroke: 1px #000000;
+    }
+    .about-title {
+        font-size: 2rem;
+    }
+    .about-container{
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 11px;
+        padding-right: 0px;
+    }
+    .about-text-container{
+        margin-right: 0;
+    }
+    .greenbox .images {
+        display: flex;
+        justify-content: space-around;
+        border-top: 3px solid #8d0404;
+    }
+    .about-hey{
+        font-size: 23px;
+    }
+    .about-me{
+        font-size: 20px;
+    }
+
+}
+
