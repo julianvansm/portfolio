@@ -1,4 +1,14 @@
 <template>
+    <span class="z-50 fixed top-0 right-0 m-2 border-black border-2 rounded overflow-hidden">
+        <a class="hover:cursor-pointer" @click="lan()" >
+                <img v-if="english === true" src="../../public/images/nl.png" alt="images/nl2.png"
+                     height="40"
+                     width="40">
+              <img v-if="english === false" src="../../public/images/en.png" alt="images/nl2.png"
+                   height="40"
+                   width="40">
+        </a>
+    </span>
   <div id="app">
     <video
         class="opacity-20 w-screen h-screen object-cover fixed -z-10"
@@ -16,14 +26,16 @@
          class="duration-300 sticky h-screen flex items-center justify-center z-0">
       <div class="w-full h-full relative">
         <div style="transform: translate(-50%, -50%)"
-             :style="{ transform: `translateY(-${this.aboutPos * 0.1}px, 50%)` }"
-             class="absolute top-1/2 left-1/2">
+             class="absolute top-1/2 left-1/2"
+             :style="{ transform: `translate(-50%, calc(-100% + ${this.aboutPos * 0.1}% ))`,
+              opacity: this.aboutPos > 700 ? 0 : Math.max(0, (this.aboutPos - 200) / 500) }"
+        >
           <div class="text-white px-2 text-center text-nowrap ">
 
             <hgroup style="-webkit-text-stroke: 2px #000000; text-shadow: 2px 2px 2px black;"
-                    class=" max-sm:text-3xl text-4xl text-white">
-              <h1 class="text-5xl">Julian van Smirren</h1>
-              <h2 class="text-3xl">Software development</h2>
+                    class=" sm:text-3xl text-xl text-white">
+              <h1 class="max-sm:text-3xl text-5xl">Julian van Smirren</h1>
+              <h2 class="max-sm:text-2xl text-3xl">Software development</h2>
             </hgroup>
           </div>
         </div>
@@ -37,49 +49,54 @@
         <div>
           <div style="background: rgb(255, 255, 255);" class="box mask"></div>
           <div class="about-wrapper  duration-500">
-            <AboutSection id="About"/>
+            <AboutSection v-if="english === true" id="About"/>
+            <about-section-dutch v-if="english === false" id="About"/>
+
           </div>
         </div>
       </div>
       <div style="max-height: 70vh; " class="z-0 relative bg-gray-300">
         <div class=" relative h-screen">
           <img :style="{ transform: `translateY(clamp(-30%, calc(-${(this.projectPos / 1000 * 60 )/2}%), 0%))` }"
-               class="absolute top-0 h-screen w-screen object-cover overflow-hidden" src="/images/software-bg.png" alt="noImg">
+               class="absolute top-0 h-screen w-screen object-cover overflow-hidden" src="/images/software-bg.png"
+               alt="noImg">
 
 
         </div>
-      <div style="background: rgb(255, 255, 255);" class=" box mask last absolute top-0 left-0 w-full h-full"></div>
-      <div style="background: rgb(255, 255, 255);" class="box mask absolute bottom-0 left-0 w-full h-full"></div>
+        <div style="background: rgb(255, 255, 255);" class=" box mask last absolute top-0 left-0 w-full h-full"></div>
+        <div style="background: rgb(255, 255, 255);" class="box mask absolute bottom-0 left-0 w-full h-full"></div>
 
-    </div>
-  </div>
-
-
-  <div ref="project"
-       class="relative duration-1000 ">
-    <div class="relative">
-      <div class="project-list-wrapper">
-        <div class="sticky z-20">
-          <h2 class="text-6xl max-sm:text-5xl text-white text-center py-4"
-              style="background: rgb(255, 255, 255); -webkit-text-stroke: 1px #000000; text-shadow: 2px 2px 2px black;">
-            Projects
-          </h2>
-          <div style="background: rgb(255, 255, 255);" class="box mask last"></div>
-        </div>
-        <div class="project-card-wrapper min-h-screen ">
-          <ProjectCard v-for="project in projects" :key="project.title" :project="project"/>
-        </div>
       </div>
     </div>
 
-  </div>
 
-  <div ref="" class="">
-    <div class="contact-wrapper duration-500">
-      <ContactSection id="Contact"/>
+    <div ref="project"
+         class="relative duration-1000 ">
+      <div class="relative">
+        <div class="project-list-wrapper">
+          <div class="sticky z-20">
+            <h2 class="text-6xl max-sm:text-5xl text-white text-center py-4"
+                style="background: rgb(255, 255, 255); -webkit-text-stroke: 1px #000000; text-shadow: 2px 2px 2px black;">
+              Projects
+            </h2>
+            <div style="background: rgb(255, 255, 255);" class="box mask last"></div>
+          </div>
+          <div class="project-card-wrapper min-h-screen ">
+            <ProjectCard v-if="english === true" v-for="project in projectsEnglish" :key="project.title" :project="project"/>
+            <ProjectCard v-if="english === false" v-for="project in projectsDutch" :key="project.title" :project="project"/>
+
+          </div>
+        </div>
+      </div>
+
     </div>
-  </div>
-  <div ref="contact" class=""></div>
+
+    <div ref="" class="">
+      <div class="contact-wrapper duration-500">
+        <ContactSection id="Contact"/>
+      </div>
+    </div>
+    <div ref="contact" class=""></div>
   </div>
 </template>
 
@@ -88,6 +105,7 @@ import {defineComponent, onMounted, ref} from "vue";
 import AboutSection from "./AboutSection.vue";
 import ProjectCard from "./ProjectCard.vue";
 import ContactSection from "./ContactSection.vue";
+import AboutSectionDutch from "./AboutSectionDutch.vue";
 
 
 function debounce(func, delay) {
@@ -97,6 +115,7 @@ function debounce(func, delay) {
     timeout = setTimeout(() => func.apply(this, args), delay);
   };
 }
+
 export default defineComponent({
   data() {
     return {
@@ -105,11 +124,12 @@ export default defineComponent({
       projectPos: 0,
       contactPos: 0,
       transparentTitle: false,
-      projects: [
+      english: true,
+      projectsEnglish: [
         {
           title: 'Portfolio',
           date: 'August 2022',
-          description: 'My very first project I\'ve worked on, and believe it or not you are on it right now! I went for the simple and not extensive look. This project taught me the basics of coding and website design.',
+          description: "My Portfolio is the very first project I've worked on, and believe it or not you are on it right now! I went for the simple and not extensive look. This project taught me the basics of coding and website design.",
           image: '/images/fulllogojs.jpg',
           link: '#Home',
         },
@@ -142,14 +162,56 @@ export default defineComponent({
           link: 'https://omas-bordspellen.newdeveloper.nl/',
         },
       ],
+      projectsDutch: [
+        {
+          title: 'Portfolio',
+          date: 'Augustus 2022',
+          description: "Dit is mijn allereerste project: de portfolio die je nu doorbladert! Ik heb het voor deze clean en functioneel gehouden, maar het was een geweldige springplank om de basis van coderen en webdesign te leren.",
+          image: '/images/fulllogojs.jpg',
+          link: '#Home',
+        },
+        {
+          title: 'De Orde van de Frontier',
+          date: 'Augustus 2022',
+          description: 'The Order was mijn tweede project. Het is een informatieve gids voor een game en zijn community. Dit is ook het project waar ik de kans kreeg om veel te experimenteren. The Order was een geweldige leerervaring.',
+          image: '/images/theorder.jpg',
+          link: 'https://theorder.newdeveloper.nl/',
+        },
+        {
+          title: 'Pecu',
+          date: 'Dec-Jan 2022-2023',
+          description: 'Pecu was het tweede officiële schoolproject. We kregen de opdracht om een website te maken voor geldbeheer. Dit project leerde me hoe ik in een team kan werken en hoe ik op interessante en creatieve manieren grafieken en databaseverbindingen kan maken.',
+          image: '/images/pecu.jpg',
+          link: 'https://pecu.newdeveloper.nl/',
+        },
+        {
+          title: 'Mastermind',
+          date: 'Feb-Maart 2023',
+          description: 'Mastermind was het derde schoolproject. In dit project moesten mijn klasgenoot en ik het spel Mastermind creëren. Het spel moest gemakkelijk te begrijpen zijn, met een scorebord en een uitlegpagina. We moesten voor dit project het vernieuwen van de pagina minimaliseren, dus gebruikten we JavaScript. Dit was mijn eerste keer dat ik met JavaScript werkte. Ik leerde niet alleen veel over JavaScript, maar realiseerde me ook het belang van een goede voorbereiding.',
+          image: '/images/mastermind.png',
+          link: 'https://brainsinc.newdeveloper.nl/',
+        },
+        {
+          title: "Oma's Bordspellen",
+          date: 'Apr-Jul 2023',
+          description: "Oma's Bordspellen is een Nederlandse webshop die een divers aanbod aan bordspellen te koop aanbiedt. Als onderdeel van mijn verantwoordelijkheden kreeg ik de taak om de product-, favorieten- en browse-pagina's te ontwikkelen, evenals de onderliggende functionaliteit voor deze pagina's te implementeren. Om dit te bereiken, hebben we gekozen voor ReactJS, een modern framework, en TypeScript, een krachtige programmeertaal. Hoewel het in het begin een uitdaging was vanwege het gebrek aan ervaring van ons team met dit framework, paste ik me snel aan en boekte ik grote vooruitgang in het beheersen van ReactJS.",
+          image: '/images/omasbordspellen.png',
+          link: 'https://omas-bordspellen.newdeveloper.nl/',
+        },
+      ],
+
     };
   },
   components: {
+    AboutSectionDutch,
     ContactSection,
     AboutSection,
     ProjectCard,
   },
   mounted() {
+    this.getProjectRect();
+    this.getAboutRect();
+    this.getContactRect();
     const updateScrollPositions = debounce(() => { //use debounce for performance
       this.getProjectRect();
       this.getAboutRect();
@@ -172,7 +234,6 @@ export default defineComponent({
       if (contact) {
         this.contactPos = contact.getBoundingClientRect().top;
       }
-      console.log(this.contactPos);
     },
     async getAboutRect() {
       const about = await this.$refs.about;
@@ -187,6 +248,9 @@ export default defineComponent({
         this.projectPos = project.getBoundingClientRect().top;
       }
     },
+    async lan(){
+      this.english = this.english !== true;
+    }
   },
 });
 </script>
