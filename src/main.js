@@ -4,6 +4,7 @@ import App from './App.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import Project from "./components/Projects/Project.vue";
 import Welcome from "./components/Welcome.vue";
+import Portfolio from "./components/Projects/Portfolio.vue";
 
 const routes = [
     {
@@ -11,9 +12,9 @@ const routes = [
         name: 'welcome',
         component: Welcome },
     {
-        path: '/project/:uuid',
-        name: 'project',
-        component: Project
+        path: '/project/portfolio',
+        name: 'projectPortfolio',
+        component: Portfolio
     },
 ]
 

@@ -21,14 +21,13 @@
     </video>
 
     <div id="Home" class="top-0 w-0" style="height: 2px;"></div>
-
     <div ref="intro"
          class="duration-300 sticky h-screen flex items-center justify-center z-0">
       <div class="w-full h-full relative">
         <div style="transform: translate(-50%, -50%)"
              class="absolute top-1/2 left-1/2"
              :style="{ transform: `translate(-50%, calc(-100% + ${this.aboutPos * 0.1}% ))`,
-              opacity: this.aboutPos > 700 ? 0 : Math.max(0, (this.aboutPos - 200) / 500) }"
+              opacity: this.aboutPos > 700 ? 1 : Math.max(0, (this.aboutPos - 200) / 500) }"
         >
           <div class="text-white px-2 text-center text-nowrap ">
 

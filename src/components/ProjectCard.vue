@@ -12,6 +12,7 @@
         <h2 class="text-xl text-gray-600">{{ project.date }}</h2>
         </div>
         <router-link
+            v-if="project.infoLink"
             :to="{ params: { uuid: project.title }, name: 'project' }"
         >
 <div class="flex h-full items-end">
