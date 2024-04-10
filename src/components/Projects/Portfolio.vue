@@ -1,6 +1,6 @@
 <template>
 
-  <div class="  max-sm:p-2 p-10 pb-10" id="About">
+  <div class="fixed top-0 left-0 w-full h-full bg-white z-50" id="About">
     <div class="w-full flex justify-center">
      <div>
        <h2

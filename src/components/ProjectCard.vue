@@ -8,17 +8,16 @@
       <div class=" flex justify-between mb-3 p-2 border-gray-800 border-b-2">
 
         <div>
-        <h1 class="text-black text-3xl">{{ project.title }}</h1>
-        <h2 class="text-xl text-gray-600">{{ project.date }}</h2>
+          <h1 class="text-black text-3xl">{{ project.title }}</h1>
+          <h2 class="text-xl text-gray-600">{{ project.date }}</h2>
         </div>
-        <router-link
-            v-if="project.infoLink"
-            :to="{ params: { uuid: project.title }, name: 'project' }"
-        >
-<div class="flex h-full items-end">
-  <p class=" underline ">Read more</p>
 
-</div>        </router-link>
+        <Project v-if="this.moreInfo === true" :project="project" :moreInfo="this.moreInfo"></Project>
+        <div v-if="project.info" class="flex h-full items-end">
+          <button @click="readMore" class="underline ">Read more</button>
+
+        </div>
+
       </div>
       <p class="p-2 pt-0 break-words text-lg">{{ project.description }}</p>
     </div>
@@ -26,19 +25,36 @@
 </template>
 
 <script>
+import Project from "@/components/Projects/Project.vue";
+
 export default {
+  data() {
+    return {
+      moreInfo: false,
+    }
+  },
+
+  components: {Project},
   props: {
     project: Object,
   },
+  methods: {
+    readMore(){
+      this.moreInfo = true
+
+
+    }
+  }
 };
 </script>
 
 <style scoped>
-.gradient{
+
+.gradient {
   background: whitesmoke;
 }
 
-.shadow{
+.shadow {
   box-shadow: rgba(131, 131, 131, 0.76) 0 0 8px 7px;
 }
 </style>

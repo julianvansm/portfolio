@@ -132,8 +132,15 @@ export default defineComponent({
           description: "My Portfolio is the very first project I've worked on, and believe it or not you are on it right now! I went for the simple and not extensive look. This project taught me the basics of coding and website design.",
           image: '/images/fulllogojs.jpg',
           info: true,
-          infoLink: '/portfolio',
-          paragraph: "In my first year of software development I was tasked with making my portfolio in phpStorm using css and html. At the time I knew near nothing of coding thus it resulted in a simple website. Later in the second year I decided to remake my portfolio, that should be the website you are viewing right now. It makes use of vue.js, this is a powerfull frontend framework using javascript. I tried to implement many more clean animations and designs.",
+          paragraph1:
+              "In my first year of software development I was tasked with making my portfolio in phpStorm using css and html." +
+              " At the time I knew near nothing of coding thus it resulted in a simple website. This website can be found here: ",
+          paragraph2Title: "Redesign",
+          paragraph2:
+              " Later in the second year I decided to remake my portfolio, that should be the website you are viewing right now." +
+              " I decided to use vue.js, this is a powerfull frontend framework using javascript." +
+              " I tried to implement many more clean animations and designs.",
+          oldLink: 'https://julian-van-smirren.newdeveloper.nl/welcomenl',
           link: '#Home',
         },
         {
