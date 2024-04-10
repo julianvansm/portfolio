@@ -85,6 +85,7 @@
             <ProjectCard v-if="english === true" v-for="project in projectsEnglish" :key="project.title" :project="project"/>
             <ProjectCard v-if="english === false" v-for="project in projectsDutch" :key="project.title" :project="project"/>
 
+
           </div>
         </div>
       </div>
