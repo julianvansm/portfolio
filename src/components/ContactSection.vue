@@ -84,49 +84,7 @@ export default {
 
 }
 
-.btn {
-  position: absolute;
-  top: -12px;
-  left: 50%;
-  transform: translateX(-50%);
-}
 
-.btn--top_text {
-  display: block;
-  position: absolute;
-  top: -10px;
-  left: 50%;
-  font-size: 12px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: white;
-  transform: translateX(-50%) translateY(-30%);
-}
-
-.btn--top_text .btn__arrow {
-  display: block;
-  position: absolute;
-  left: 50%;
-  height: 10px;
-  width: 10px;
-  border-left: 2px solid white;
-  border-top: 2px solid white;
-  -webkit-transform: translateX(-50%) rotate(45deg);
-  transform: translateX(-50%) rotate(45deg);
-}
-
-.btn--top_text:hover {
-  filter: drop-shadow(2px 2px 2px);
-}
-
-.btn--top_text .btn__arrow--top {
-  top: 0px;
-}
-
-.btn--top_text .btn__arrow--bottom {
-  top: 6px;
-}
 
 .not-bottom {
   transform: translate3d(0px, 40px, 0px) scale(0.5, 0.5);

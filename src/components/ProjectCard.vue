@@ -12,7 +12,7 @@
           <h2 class="text-xl text-gray-600">{{ project.date }}</h2>
         </div>
 
-        <Project v-if="this.moreInfo === true" :project="project" :moreInfo="this.moreInfo"></Project>
+        <Project v-if="this.moreInfo === true" :project="project" :moreInfo="this.moreInfo" @toggle-project="readMore"></Project>
         <div v-if="project.info" class="flex h-full items-end">
           <button @click="readMore" class="underline ">Read more</button>
 
@@ -40,9 +40,8 @@ export default {
   },
   methods: {
     readMore(){
-      this.moreInfo = true
-
-
+      this.moreInfo = this.moreInfo !== true;
+      console.log(this.moreInfo)
     }
   }
 };

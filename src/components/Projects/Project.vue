@@ -65,11 +65,9 @@ export default {
       console.log('nah')
       this.unload = true
       this.loadIn = false
-      await this.close()
-    },
-    async close(){
-
-    }
+      await new Promise(resolve => setTimeout(resolve, 500));
+      this.$emit('toggle-project');
+      },
   },
 
 };
@@ -78,7 +76,7 @@ export default {
 <style scoped>
 .loadIn {
   animation-name: load;
-  animation-duration: 1s;
+  animation-duration: 500ms;
 }
 @keyframes load {
   from  {transform: translate(0%, 100%);}
@@ -86,7 +84,7 @@ export default {
 }
 .unLoad {
   animation-name: unLoad;
-  animation-duration: 1s;
+  animation-duration: 500ms;
 }
 @keyframes unLoad {
   from  {transform: translate(0%, 0%);}

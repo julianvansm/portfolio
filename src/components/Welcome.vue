@@ -29,20 +29,29 @@
              :style="{ transform: `translate(-50%, calc(-100% + ${this.aboutPos * 0.1}% ))`,
               opacity: this.aboutPos > 700 ? 1 : Math.max(0, (this.aboutPos - 200) / 500) }"
         >
-          <div class="text-white px-2 text-center text-nowrap ">
-
+          <div  class="text-white px-2 text-center text-nowrap ">
+           <div  :class="{'opacity-0': top === false}" class=" absolute duration-1000 -bottom-36 left-1/2 ">
+             <a href="#about" style="transform: rotate(180deg)" class=" btn--page_top">
+            <span  :class="{animation: top === true}"  class="btn__arrow btn__arrow--top"
+                  style="opacity: 1; transform: matrix(0.7071, 0.7071, -0.7071, 0.7071, -5, 0);"></span>
+               <span :class="{animation: top === true}" class="btn__arrow btn__arrow--bottom"
+                     style="opacity: 1; transform: matrix(0.7071, 0.7071, -0.7071, 0.7071, -5, 0);"></span>
+             </a>
+           </div>
             <hgroup style="-webkit-text-stroke: 2px #000000; text-shadow: 2px 2px 2px black;"
                     class=" sm:text-3xl text-xl text-white">
               <h1 class="max-sm:text-3xl text-5xl">Julian van Smirren</h1>
               <h2 class="max-sm:text-2xl text-3xl">Software development</h2>
             </hgroup>
+
           </div>
         </div>
       </div>
+
     </div>
     <div>
 
-      <div ref="about"
+      <div ref="about" id="about"
            class=" duration-500"
       >
         <div>
@@ -125,6 +134,7 @@ export default defineComponent({
       contactPos: 0,
       transparentTitle: false,
       english: true,
+      top: true,
       projectsEnglish: [
         {
           title: 'Portfolio',
@@ -229,6 +239,8 @@ export default defineComponent({
     }, 10);
 
     window.addEventListener("scroll", updateScrollPositions);
+    window.addEventListener('scroll', this.handleScroll);
+
   },
   setup() {
     const scrollPos = ref(0);
@@ -239,6 +251,18 @@ export default defineComponent({
   },
 
   methods: {
+    handleScroll() {
+      const scrollHeight = document.documentElement.scrollHeight;
+      const clientHeight = window.innerHeight;
+      const scrollTop = window.scrollY;
+      console.log('scrollTop', scrollTop)
+      console.log('clientHeight', clientHeight)
+      console.log('scrollHeight', scrollHeight)
+
+
+      this.top = scrollTop >= 0 && scrollTop <= 100;
+      console.log('top',this.top)
+    },
     async getContactRect() {
       const contact = await this.$refs.contact;
       if (contact) {
@@ -267,10 +291,6 @@ export default defineComponent({
 
 
 <style scoped>
-
-.transparent {
-  opacity: 0;
-}
 
 div.sticky {
   position: sticky;
@@ -310,8 +330,58 @@ div.sticky {
 
 }
 
-.move-img {
-  transform: translateY(-30%);
+
+.btn--page_top {
+  display: block;
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: white;
+  transform: translateX(-50%) translateY(-30%);
+
+}
+
+.btn--page_top .btn__arrow {
+
+  display: block;
+  position: absolute;
+  left: 50%;
+  height: 15px;
+  width: 15px;
+  border-left: 3px solid white;
+  border-top: 3px solid white;
+
+
+}
+.btn--page_top .animation {
+  animation-name: downArrow;
+  animation-duration: 1000ms;
+}
+@keyframes downArrow {
+  from {height: 50px}
+  from {width: 50px}
+  from  {opacity: 0;}
+  from  {transform: translate(-5px, -1000%) rotate(45deg) ;}
+  to {opacity: 100%}
+  to  {transform: translate(-5px, 0%) rotate(45deg);}
+  to  {height: 15px;}
+  to {width: 15px;}
+
+}
+.btn--page_top:hover {
+  filter: drop-shadow(2px 2px 2px);
+}
+
+.btn--page_top .btn__arrow--top {
+  top: -4px;
+}
+
+.btn--page_top .btn__arrow--bottom {
+  top: 6px;
 }
 
 </style>
