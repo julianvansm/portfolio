@@ -5,13 +5,13 @@
 html, body {
   height: 100%;
   margin: 0;
-  /*scroll-behavior: ;*/
 
 }
 
 body {
   margin: 0;
-  background-image: linear-gradient(to right, rgb(73, 73, 73), rgb(28, 28, 28));
+  background-color: #00343d;
+  /*background-image: linear-gradient(to right, #c97bf3, #b21fff);*/
   font-family: 'Paytone One', sans-serif;
   overflow-y: scroll;
   scroll-behavior: smooth;
@@ -19,7 +19,7 @@ body {
 }
 body::-webkit-scrollbar {
   width: 10px;
-  background-color: rgba(12, 12, 12, 0.15);
+  background-color: #00343d;
 }
 
 
@@ -27,7 +27,7 @@ body::-webkit-scrollbar-thumb {
   border-radius: 10rem;
   border: 1px solid #fff;
   /* -webkit-box-shadow: inset -5px 0px 29px 0 #ec4896; */
-  background-color: rgba(255, 0, 0);
+  background-color:#0bd8a2;
 }
 
 

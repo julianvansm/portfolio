@@ -1,6 +1,7 @@
 <template>
-    <span class="z-50 fixed top-0 right-0 m-2 border-black border-2 rounded overflow-hidden">
-        <a class="hover:cursor-pointer" @click="lan()" >
+
+  <span class="z-50 fixed top-0 right-0 m-2 border-black border-2 rounded overflow-hidden">
+        <a class="hover:cursor-pointer" @click="lan()">
                 <img v-if="english === true" src="../../public/images/nl.png" alt="images/nl2.png"
                      height="40"
                      width="40">
@@ -10,40 +11,34 @@
         </a>
     </span>
   <div id="app">
-    <video
-        class="opacity-20 w-screen h-screen object-cover fixed -z-10"
-        autoplay
-        muted
-        loop
-        id="background-video"
-    >
-      <source src="../../public/video/movingbackgroundbackup.mp4"/>
-    </video>
-
-    <div id="Home" class="top-0 w-0" style="height: 2px;"></div>
+    <div id="Home" class="top-0 w-0"></div>
     <div ref="intro"
          class="duration-300 sticky h-screen flex items-center justify-center z-0">
       <div class="w-full h-full relative">
-        <div style="transform: translate(-50%, -50%)"
-             class="absolute top-1/2 left-1/2"
-             :style="{ transform: `translate(-50%, calc(-100% + ${this.aboutPos * 0.1}% ))`,
-              opacity: this.aboutPos > 700 ? 1 : Math.max(0, (this.aboutPos - 200) / 500) }"
-        >
-          <div  class="text-white px-2 text-center text-nowrap ">
-           <div  :class="{'opacity-0': top === false}" class=" absolute duration-1000 -bottom-36 left-1/2 ">
-             <a href="#about" style="transform: rotate(180deg)" class=" btn--page_top">
-            <span  :class="{animation: top === true}"  class="btn__arrow btn__arrow--top"
+        <animation-tester></animation-tester>
+        <div :class="{'opacity-0': top === false}" class=" absolute duration-1000 bottom-10  left-1/2 ">
+          <a href="#about" style="transform: rotate(180deg)" class=" btn--page_top">
+            <span :class="{animation: top === true}" class="btn__arrow btn__arrow--top"
                   style="opacity: 1; transform: matrix(0.7071, 0.7071, -0.7071, 0.7071, -5, 0);"></span>
-               <span :class="{animation: top === true}" class="btn__arrow btn__arrow--bottom"
-                     style="opacity: 1; transform: matrix(0.7071, 0.7071, -0.7071, 0.7071, -5, 0);"></span>
-             </a>
-           </div>
-            <hgroup style="-webkit-text-stroke: 2px #000000; text-shadow: 2px 2px 2px black;"
-                    class=" sm:text-3xl text-xl text-white">
-              <h1 class="max-sm:text-3xl text-5xl">Julian van Smirren</h1>
-              <h2 class="max-sm:text-2xl text-3xl">Software development</h2>
-            </hgroup>
+            <span :class="{animation: top === true}" class="btn__arrow btn__arrow--bottom"
+                  style="opacity: 1; transform: matrix(0.7071, 0.7071, -0.7071, 0.7071, -5, 0);"></span>
+          </a>
+        </div>
+        <div
+            class="absolute top-1/2 flex justify-between flex-row flex-nowrap w-full px-10">
+          <!--             :style="{ transform: `translate(-50%, calc(-100% + ${this.aboutPos * 0.1}% ))`,-->
+          <!--              opacity: this.aboutPos > 700 ? 1 : Math.max(0, (this.aboutPos - 200) / 500) }"-->
 
+          <div class="w-full">
+            <hgroup style=""
+                    class=" sm:text-3xl text-xl text-white">
+              <h1 class="max-sm:text-3xl text-5xl">Hi,</h1>
+              <h2 class="max-sm:text-3xl text-5xl">I'm Julian,</h2>
+              <h3 class="max-sm:text-2xl text-3xl">Software developer</h3>
+            </hgroup>
+          </div>
+          <div style="transform: translate(0%, -50%)" class="absolute right-0 top-1/2">
+            <svg-man></svg-man>
           </div>
         </div>
       </div>
@@ -51,30 +46,13 @@
     </div>
     <div>
 
-      <div ref="about" id="about"
-           class=" duration-500"
-      >
-        <div>
-          <div style="background: rgb(255, 255, 255);" class="box mask"></div>
-          <div class="about-wrapper  duration-500">
+
+        <div class="about-wrapper sticky h-screen flex items-center justify-center">
+          <div>
             <AboutSection v-if="english === true" id="About"/>
             <about-section-dutch v-if="english === false" id="About"/>
-
           </div>
         </div>
-      </div>
-      <div style="max-height: 70vh; " class="z-0 relative bg-gray-300">
-        <div class=" relative h-screen">
-          <img :style="{ transform: `translateY(clamp(-30%, calc(-${(this.projectPos / 1000 * 60 )/2}%), 0%))` }"
-               class="absolute top-0 h-screen w-screen object-cover overflow-hidden" src="/images/software-bg.png"
-               alt="noImg">
-
-
-        </div>
-        <div style="background: rgb(255, 255, 255);" class=" box mask last absolute top-0 left-0 w-full h-full"></div>
-        <div style="background: rgb(255, 255, 255);" class="box mask absolute bottom-0 left-0 w-full h-full"></div>
-
-      </div>
     </div>
 
 
@@ -90,8 +68,10 @@
             <div style="background: rgb(255, 255, 255);" class="box mask last"></div>
           </div>
           <div class="project-card-wrapper min-h-screen ">
-            <ProjectCard v-if="english === true" v-for="project in projectsEnglish" :key="project.title" :project="project"/>
-            <ProjectCard v-if="english === false" v-for="project in projectsDutch" :key="project.title" :project="project"/>
+            <ProjectCard v-if="english === true" v-for="project in projectsEnglish" :key="project.title"
+                         :project="project"/>
+            <ProjectCard v-if="english === false" v-for="project in projectsDutch" :key="project.title"
+                         :project="project"/>
 
 
           </div>
@@ -115,7 +95,9 @@ import AboutSection from "./AboutSection.vue";
 import ProjectCard from "./ProjectCard.vue";
 import ContactSection from "./ContactSection.vue";
 import AboutSectionDutch from "./AboutSectionDutch.vue";
-
+import SvgMan from "@/components/SvgMan.vue";
+import anime from "animejs/lib/anime.es.js";
+import AnimationTester from "@/components/AnimationTester.vue";
 
 function debounce(func, delay) {
   let timeout;
@@ -223,10 +205,13 @@ export default defineComponent({
     };
   },
   components: {
+    AnimationTester,
     AboutSectionDutch,
     ContactSection,
     AboutSection,
     ProjectCard,
+    SvgMan,
+
   },
   mounted() {
     this.getProjectRect();
@@ -240,6 +225,16 @@ export default defineComponent({
 
     window.addEventListener("scroll", updateScrollPositions);
     window.addEventListener('scroll', this.handleScroll);
+    const wavyLine = this.$refs.wavyLine; // Get the element reference
+
+    anime({
+      targets: wavyLine, // Target the actual element
+      translateX: [-5, 5], // Animation range (in pixels)
+      easing: 'easeInOutSine', // Animation easing function
+      duration: 1500, // Animation duration (in milliseconds)
+      loop: true, // Loop the animation indefinitely
+      direction: 'alternate', // Alternate between forward and backward movement
+    });
 
   },
   setup() {
@@ -252,16 +247,9 @@ export default defineComponent({
 
   methods: {
     handleScroll() {
-      const scrollHeight = document.documentElement.scrollHeight;
-      const clientHeight = window.innerHeight;
       const scrollTop = window.scrollY;
-      console.log('scrollTop', scrollTop)
-      console.log('clientHeight', clientHeight)
-      console.log('scrollHeight', scrollHeight)
-
 
       this.top = scrollTop >= 0 && scrollTop <= 100;
-      console.log('top',this.top)
     },
     async getContactRect() {
       const contact = await this.$refs.contact;
@@ -282,7 +270,7 @@ export default defineComponent({
         this.projectPos = project.getBoundingClientRect().top;
       }
     },
-    async lan(){
+    async lan() {
       this.english = this.english !== true;
     }
   },
@@ -292,21 +280,15 @@ export default defineComponent({
 
 <style scoped>
 
-div.sticky {
+.sticky {
   position: sticky;
-  top: -10px;
+  top: 0;
   font-size: 20px;
 }
 
 .about-wrapper {
-  z-index: 10;
-  display: flex;
-  position: sticky;
-  top: 0;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  background: rgb(255, 255, 255);
-
+  background: #00343d;
+  border-top: #0bd8a2 solid 1px;
 }
 
 .project-card-wrapper {
@@ -317,7 +299,6 @@ div.sticky {
 
 .project-list-wrapper {
   z-index: 20;
-  position: sticky;
   top: 0;
   background: rgb(255, 255, 255);
 }
@@ -342,6 +323,8 @@ div.sticky {
   letter-spacing: 2px;
   color: white;
   transform: translateX(-50%) translateY(-30%);
+  filter: drop-shadow(1px 1px 1px black);
+
 
 }
 
@@ -357,23 +340,42 @@ div.sticky {
 
 
 }
+
 .btn--page_top .animation {
   animation-name: downArrow;
   animation-duration: 1000ms;
 }
+
 @keyframes downArrow {
-  from {height: 50px}
-  from {width: 50px}
-  from  {opacity: 0;}
-  from  {transform: translate(-5px, -1000%) rotate(45deg) ;}
-  to {opacity: 100%}
-  to  {transform: translate(-5px, 0%) rotate(45deg);}
-  to  {height: 15px;}
-  to {width: 15px;}
+  from {
+    height: 50px
+  }
+  from {
+    width: 50px
+  }
+  from {
+    opacity: 0;
+  }
+  from {
+    transform: translate(-5px, -1000%) rotate(45deg);
+  }
+  to {
+    opacity: 100%
+  }
+  to {
+    transform: translate(-5px, 0%) rotate(45deg);
+  }
+  to {
+    height: 15px;
+  }
+  to {
+    width: 15px;
+  }
 
 }
+
 .btn--page_top:hover {
-  filter: drop-shadow(2px 2px 2px);
+  filter: drop-shadow(2px 2px 2px black);
 }
 
 .btn--page_top .btn__arrow--top {
@@ -383,5 +385,6 @@ div.sticky {
 .btn--page_top .btn__arrow--bottom {
   top: 6px;
 }
+
 
 </style>

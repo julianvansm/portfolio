@@ -5,6 +5,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Project from "./components/Projects/Project.vue";
 import Welcome from "./components/Welcome.vue";
 import Portfolio from "./components/Projects/Portfolio.vue";
+import AnimationTester from "@/components/AnimationTester.vue";
+import svgMan from "@/components/SvgMan.vue";
 
 const routes = [
     {
@@ -16,6 +18,16 @@ const routes = [
         path: '/project/:uuid',
         name: 'project',
         component: Project
+    },
+    {
+        path: '/test',
+        name: 'test',
+        component: AnimationTester
+    },
+    {
+        path: '/test2',
+        name: 'test2',
+        component: svgMan
     },
 
 ]
