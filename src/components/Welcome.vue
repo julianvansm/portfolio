@@ -39,6 +39,7 @@
           </div>
           <div style="transform: translate(0%, -50%)" class="absolute right-0 top-1/2">
             <svg-man></svg-man>
+
           </div>
         </div>
       </div>
