@@ -1,7 +1,7 @@
 <template>
   <div class="wave-top">
-    <svg class="wave wave-motion" height="620px" viewBox="0 520.9 2120 322.1">
-      <path fill-rule="evenodd" clip-rule="evenodd"
+    <svg class="wave wave-motion " viewBox="-600 600 3820 1334.1">
+      <path  fill-rule="evenodd" clip-rule="evenodd"
             d=""  ref="wavePath" fill="url(#waveGradient)"/>
       <defs>
         <linearGradient id="waveGradient" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -20,14 +20,14 @@ export default {
   mounted() {
     const wavePath = this.$refs.wavePath;
 
-    const wave1 = "M1886 572.9C2073.9 490.8 2280.6 408.3 2460.1 321.3 2639.7 234.3 2913 209.5 3280 247.1 3427.2 255.7 3574.4 264.2 3721.6 272.8L5120 342.3 5120 197.9 0 197.9 3 742C222 856 327 864 513 877 1332 861 1708.9 612.7 1786 601.9Z";
-    const wave2 = "M1874 553C2073.9 490.8 2280.6 408.3 2460.1 321.3 2639.7 234.3 2913 209.5 3280 247.1 3427.2 255.7 3574.4 264.2 3721.6 272.8L5120 342.3 5120 197.9 0 197.9 3 742C222 856 327 864 503 858 1341 832 1698 603 1784 582Z";
-    const wave3 = "M1886 572.9C2073.9 490.8 2280.6 408.3 2460.1 321.3 2639.7 234.3 2913 209.5 3280 247.1 3427.2 255.7 3574.4 264.2 3721.6 272.8L5120 342.3 5120 197.9 0 197.9 3 742C222 856 327 864 513 877 1332 861 1708.9 612.7 1786 601.9Z";
+    const wave1 = "M2004 909C2493 573 2388 475 2666 334 2944 224 2971 304 3290 178 3427.2 115.4 3574.4 132.4 3721.6 149.6L5120 288.6 5120-.2 0-.2 1 1472C1237 1552 1766 1077 2004 909Z";
+    const wave2 = "M1976 864C2493 573 2388 475 2666 334 2944 224 2971 304 3290 178 3427.2 115.4 3574.4 132.4 3721.6 149.6L5120 288.6 5120-.2 0-.2 0 1372C1182 1185 1549 1102 1976 864Z";
+    const wave3 = "M2004 909C2493 573 2388 475 2666 334 2944 224 2971 304 3290 178 3427.2 115.4 3574.4 132.4 3721.6 149.6L5120 288.6 5120-.2 0-.2 1 1472C1237 1552 1766 1077 2004 909Z";
 
     const animation = anime({
       targets: wavePath,
       easing: 'linear',
-      duration: 8000,
+      duration: 28000,
       loop: true,
       d: [
         {value: [wave1, wave2]},
@@ -42,27 +42,40 @@ export default {
 <style scoped>
 .wave-top {
   overflow: hidden;
+
 }
 .wave {
-  //transform: translateX(-1.11111rem);
 
 
 }
 .wave-motion{
+  overflow: hidden;
   position: relative;
-  width: 200%;
-  animation: move2 20s linear infinite;
+  width: 3000px;
+  animation: move2 90s linear infinite;
+  transform: translateX(-20%);
 }
 
 @keyframes move2 {
   0% {
-    left: -40%;
+    left: -0%;
   }
   50% {
-    left: -50%;
+    left: -0%;
   }
   100%{
-    left: -40%;
+    left: -0%;
   }
+}
+
+@media screen and (max-width: 760px) {
+  .wave-motion{
+    overflow: hidden;
+    position: relative;
+    width: 3000px;
+    animation: move2 90s linear infinite;
+    transform: translate(-30%, -20%);
+  }
+
 }
 </style>

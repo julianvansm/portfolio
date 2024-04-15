@@ -1,4 +1,5 @@
 <template>
+  <animation-tester class="-z-10 fixed"></animation-tester>
 
   <span class="z-50 fixed top-0 right-0 m-2 border-black border-2 rounded overflow-hidden">
         <a class="hover:cursor-pointer" @click="lan()">
@@ -15,29 +16,25 @@
     <div ref="intro"
          class="duration-300 sticky h-screen flex items-center justify-center z-0">
       <div class="w-full h-full relative">
-        <animation-tester></animation-tester>
-        <div :class="{'opacity-0': top === false}" class=" absolute duration-1000 bottom-10  left-1/2 ">
-          <a href="#about" style="transform: rotate(180deg)" class=" btn--page_top">
+        <div :class="{'opacity-0': top === false}" class=" absolute duration-1000 bottom-32  left-1/2 ">
+          <a href="#about" style="transform: rotate(180deg)" class=" btn--page_top z-50">
             <span :class="{animation: top === true}" class="btn__arrow btn__arrow--top"
                   style="opacity: 1; transform: matrix(0.7071, 0.7071, -0.7071, 0.7071, -5, 0);"></span>
             <span :class="{animation: top === true}" class="btn__arrow btn__arrow--bottom"
                   style="opacity: 1; transform: matrix(0.7071, 0.7071, -0.7071, 0.7071, -5, 0);"></span>
           </a>
         </div>
-        <div
-            class="absolute top-1/2 flex justify-between flex-row flex-nowrap w-full px-10">
-          <!--             :style="{ transform: `translate(-50%, calc(-100% + ${this.aboutPos * 0.1}% ))`,-->
-          <!--              opacity: this.aboutPos > 700 ? 1 : Math.max(0, (this.aboutPos - 200) / 500) }"-->
-
+                <div
+                    class="absolute top-0 flex-col md:top-1/2 flex md:justify-between md:flex-row flex-nowrap w-full px-10">
           <div class="w-full">
             <hgroup style=""
-                    class=" sm:text-3xl text-xl text-white">
+                    class=" max-md:pt-20 sm:text-3xl text-xl text-white">
               <h1 class="max-sm:text-3xl text-5xl">Hi,</h1>
-              <h2 class="max-sm:text-3xl text-5xl">I'm Julian,</h2>
+              <h2 class="text-animaton max-sm:text-3xl text-5xl">I'm <span>Julian</span>,</h2>
               <h3 class="max-sm:text-2xl text-3xl">Software developer</h3>
             </hgroup>
           </div>
-          <div style="transform: translate(0%, -50%)" class="absolute right-0 top-1/2">
+          <div style="" class="cat-responsive absolute right-0 top-1/2">
             <svg-man></svg-man>
 
           </div>
@@ -45,30 +42,25 @@
       </div>
 
     </div>
-    <div>
-
-
-        <div class="about-wrapper sticky h-screen flex items-center justify-center">
-          <div>
-            <AboutSection v-if="english === true" id="About"/>
-            <about-section-dutch v-if="english === false" id="About"/>
-          </div>
-        </div>
+    <div class="about-wrapper sticky about top-0 min-h-full h-screen overflow-y-auto">
+      <div id="about" class="">
+        <AboutSection :english="english" id="About"/>
+      </div>
     </div>
 
 
     <div ref="project"
-         class="relative duration-1000 ">
+         class="relative duration-1000 pt-20 ">
       <div class="relative">
         <div class="project-list-wrapper">
-          <div class="sticky z-20">
+          <div class="sticky z-30">
             <h2 class="text-6xl max-sm:text-5xl text-white text-center py-4"
                 style="background: rgb(255, 255, 255); -webkit-text-stroke: 1px #000000; text-shadow: 2px 2px 2px black;">
               Projects
             </h2>
             <div style="background: rgb(255, 255, 255);" class="box mask last"></div>
           </div>
-          <div class="project-card-wrapper min-h-screen ">
+          <div class="project-card-wrapper min-h-screen z-20 ">
             <ProjectCard v-if="english === true" v-for="project in projectsEnglish" :key="project.title"
                          :project="project"/>
             <ProjectCard v-if="english === false" v-for="project in projectsDutch" :key="project.title"
@@ -95,7 +87,6 @@ import {defineComponent, onMounted, ref} from "vue";
 import AboutSection from "./AboutSection.vue";
 import ProjectCard from "./ProjectCard.vue";
 import ContactSection from "./ContactSection.vue";
-import AboutSectionDutch from "./AboutSectionDutch.vue";
 import SvgMan from "@/components/SvgMan.vue";
 import anime from "animejs/lib/anime.es.js";
 import AnimationTester from "@/components/AnimationTester.vue";
@@ -207,7 +198,6 @@ export default defineComponent({
   },
   components: {
     AnimationTester,
-    AboutSectionDutch,
     ContactSection,
     AboutSection,
     ProjectCard,
@@ -287,9 +277,14 @@ export default defineComponent({
   font-size: 20px;
 }
 
+.about-wrapper.sticky {
+  top: -3px;
+
+}
+
 .about-wrapper {
   background: #00343d;
-  border-top: #0bd8a2 solid 1px;
+  border-top: #0bd8a2 solid 3px;
 }
 
 .project-card-wrapper {
@@ -387,5 +382,62 @@ export default defineComponent({
   top: 6px;
 }
 
+.text-animaton span {
+  --c1: #ec50ef;
+  --c2: #ff8eec;
 
+  --_p: 93% 83.5% at;
+  --_g1: radial-gradient(var(--_p) bottom, var(--c1) 79.5%, #0000 80%) no-repeat;
+  --_g2: radial-gradient(var(--_p) top, #0000 79.5%, var(--c1) 80%) no-repeat;
+  --_g3: radial-gradient(var(--_p) bottom, var(--c2) 79.5%, #0000 80%) no-repeat;
+  --_g4: radial-gradient(var(--_p) top, #0000 79.5%, var(--c2) 80%) no-repeat;
+  background: var(--_g1), var(--_g2), var(--_g1), var(--_g2),
+  var(--_g3), var(--_g4), var(--_g3), var(--_g4);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: #0000;
+  -webkit-text-stroke: 0.1rem white;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  animation: s 2s infinite alternate,
+  m 3s infinite linear;
+}
+.cat-responsive{
+  transform: translate(0%, -50%)
+}
+@keyframes m {
+  0% {
+    background-position: -200% 100%, -100% 100%, 0% 100%, 100% 100%,
+    0% 100%, 100% 100%, 200% 100%, 300% 100%
+  }
+  100% {
+    background-position: 0% 100%, 100% 100%, 200% 100%, 300% 100%,
+    -200% 100%, -100% 100%, 0% 100%, 100% 100%
+  }
+}
+
+@keyframes s {
+  0% {
+    background-size: 50.5% 60%, 50.5% 60%, 50.5% 60%, 50.5% 60%,
+    50.5% 90%, 50.5% 90%, 50.5% 90%, 50.5% 90%
+  }
+  33% {
+    background-size: 50.5% 70%, 50.5% 70%, 50.5% 70%, 50.5% 70%,
+    50.5% 75%, 50.5% 75%, 50.5% 75%, 50.5% 75%
+  }
+  66% {
+    background-size: 50.5% 55%, 50.5% 55%, 50.5% 55%, 50.5% 55%,
+    50.5% 80%, 50.5% 80%, 50.5% 80%, 50.5% 80%
+  }
+  100% {
+    background-size: 50.5% 90%, 50.5% 90%, 50.5% 90%, 50.5% 90%,
+    50.5% 95%, 50.5% 95%, 50.5% 95%, 50.5% 95%
+  }
+}
+
+@media screen and (max-width: 768px) {
+.cat-responsive{
+  transform: translate(0%, 30%)
+}
+}
 </style>
