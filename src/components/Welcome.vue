@@ -1,16 +1,25 @@
 <template>
   <animation-tester class="-z-10 fixed"></animation-tester>
 
-  <span class="z-50 fixed top-0 right-0 m-2 border-black border-2 rounded overflow-hidden">
+  <span class="z-50 fixed top-0 right-0 m-2  border-white border-2 rounded overflow-hidden">
         <a class="hover:cursor-pointer" @click="lan()">
-                <img v-if="english === true" src="../../public/images/nl.png" alt="images/nl2.png"
-                     height="40"
-                     width="40">
-              <img v-if="english === false" src="../../public/images/en.png" alt="images/nl2.png"
-                   height="40"
-                   width="40">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+               stroke="white" class="w-8 h-8" style="filter: drop-shadow(2px 2px 2px black)">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="m10.5 21 5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 0 1 6-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 0 1-3.827-5.802"/>
+          </svg>
+
         </a>
+
     </span>
+<div>
+  <p v-if="english === true" style="filter: drop-shadow(2px 2px 1px black)"  class="text-white lan-animation fixed -top-20 right-14 z-50">
+    Switched to English
+  </p>
+  <p v-if="english === false" style="filter: drop-shadow(2px 2px 1px black)" class="text-white lan-animation fixed -top-20 right-14 z-50">
+    Vertaald naar het Nederlands
+  </p>
+</div>
   <div id="app">
     <div id="Home" class="top-0 w-0"></div>
     <div ref="intro"
@@ -53,7 +62,7 @@
          class="relative duration-1000 pt-20 ">
       <div class="relative">
         <div style=" border-top: 3px solid #0bd8a2; background: #00343d" class="project-list-wrapper">
-          <div  class="sticky z-30">
+          <div class="sticky z-30">
             <div style="background: #00343d;" class=" w-full flex justify-center">
               <div class="w-min">
                 <h2 class="text-6xl max-sm:text-5xl text-white text-center pt-4"
@@ -280,7 +289,16 @@ export default defineComponent({
 
 
 <style scoped>
-
+.lan-animation {
+  animation-name: lani;
+  animation-duration: 3s;
+}
+@keyframes lani {
+  0%  {top: -20%}
+  10% {top: 2%}
+  90% {top: 2%}
+  100% {top: -20%}
+}
 .sticky {
   position: sticky;
   top: 0;
