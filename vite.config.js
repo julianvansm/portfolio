@@ -12,6 +12,7 @@ export default defineConfig({
     extensions: [".ts", ".js", ".vue"]
   },
   build: {
-    outDir: './html'
+    outDir: './html',
+    sourcemap: true
   }
 })
