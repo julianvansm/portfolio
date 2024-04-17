@@ -14,10 +14,10 @@
     </span>
 <div>
   <p v-if="english === true" style="filter: drop-shadow(2px 2px 1px black)"  class="text-white lan-animation fixed -top-20 right-14 z-50">
-    Switched to English
+    English
   </p>
   <p v-if="english === false" style="filter: drop-shadow(2px 2px 1px black)" class="text-white lan-animation fixed -top-20 right-14 z-50">
-    Vertaald naar het Nederlands
+    Nederlands
   </p>
 </div>
   <div id="app">
@@ -36,10 +36,16 @@
         <div
             class="absolute top-0 flex-col md:top-1/2 flex md:justify-between md:flex-row flex-nowrap w-full px-10">
           <div class="w-full">
-            <hgroup style=""
+            <hgroup v-if="english === true" style=""
                     class=" max-md:pt-20 sm:text-3xl text-xl text-white">
               <h1 class="max-sm:text-3xl text-5xl">Hi,</h1>
               <h2 class="text-animaton max-sm:text-3xl text-5xl">I'm <span>Julian</span>,</h2>
+              <h3 class="max-sm:text-2xl text-3xl">Software developer</h3>
+            </hgroup>
+            <hgroup v-if="english === false" style=""
+                    class=" max-md:pt-20 sm:text-3xl text-xl text-white">
+              <h1 class="max-sm:text-3xl text-5xl">Hoi,</h1>
+              <h2 class="text-animaton max-sm:text-3xl text-5xl">Ik ben <span>Julian</span>,</h2>
               <h3 class="max-sm:text-2xl text-3xl">Software developer</h3>
             </hgroup>
           </div>
