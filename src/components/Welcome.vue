@@ -24,8 +24,8 @@
                   style="opacity: 1; transform: matrix(0.7071, 0.7071, -0.7071, 0.7071, -5, 0);"></span>
           </a>
         </div>
-                <div
-                    class="absolute top-0 flex-col md:top-1/2 flex md:justify-between md:flex-row flex-nowrap w-full px-10">
+        <div
+            class="absolute top-0 flex-col md:top-1/2 flex md:justify-between md:flex-row flex-nowrap w-full px-10">
           <div class="w-full">
             <hgroup style=""
                     class=" max-md:pt-20 sm:text-3xl text-xl text-white">
@@ -52,13 +52,23 @@
     <div ref="project"
          class="relative duration-1000 pt-20 ">
       <div class="relative">
-        <div class="project-list-wrapper">
-          <div class="sticky z-30">
-            <h2 class="text-6xl max-sm:text-5xl text-white text-center py-4"
-                style="background: rgb(255, 255, 255); -webkit-text-stroke: 1px #000000; text-shadow: 2px 2px 2px black;">
-              Projects
-            </h2>
-            <div style="background: rgb(255, 255, 255);" class="box mask last"></div>
+        <div style=" border-top: 3px solid #0bd8a2; background: #00343d" class="project-list-wrapper">
+          <div  class="sticky z-30">
+            <div style="background: #00343d;" class=" w-full flex justify-center">
+              <div class="w-min">
+                <h2 class="text-6xl max-sm:text-5xl text-white text-center pt-4"
+                    style="background: #00343d; -webkit-text-stroke: 1px #000000;">
+                  Projects
+                </h2>
+                <div class="container">
+                  <div class="text-red-500">*</div>
+                  <div class="line line-1"></div>
+                  <div class="line line-2"></div>
+                </div>
+              </div>
+            </div>
+
+            <div style="background: #00343d; " class="box mask last"></div>
           </div>
           <div class="project-card-wrapper min-h-screen z-20 ">
             <ProjectCard v-if="english === true" v-for="project in projectsEnglish" :key="project.title"
@@ -291,6 +301,7 @@ export default defineComponent({
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  background: #00343d;
 }
 
 .project-list-wrapper {
@@ -402,9 +413,11 @@ export default defineComponent({
   animation: s 2s infinite alternate,
   m 3s infinite linear;
 }
-.cat-responsive{
+
+.cat-responsive {
   transform: translate(0%, -50%)
 }
+
 @keyframes m {
   0% {
     background-position: -200% 100%, -100% 100%, 0% 100%, 100% 100%,
@@ -436,8 +449,8 @@ export default defineComponent({
 }
 
 @media screen and (max-width: 768px) {
-.cat-responsive{
-  transform: translate(0%, 30%)
-}
+  .cat-responsive {
+    transform: translate(0%, 30%)
+  }
 }
 </style>

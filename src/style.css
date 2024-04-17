@@ -138,11 +138,13 @@ body::-webkit-scrollbar-thumb {
 .box.mask {
   -webkit-mask: radial-gradient(var(--R) at 50% calc(var(--size) + var(--p)), blue 99%, rgba(255, 0, 0, 0) 101%) calc(50% - 2 * var(--size)) 0/calc(4 * var(--size)) 100%,
   radial-gradient(var(--R) at 50% calc(-1 * var(--p)), #0000 99%, red 101%) 50% var(--size)/calc(4 * var(--size)) 100% repeat-x;
+
 }
 
 .box.last {
   transform: rotate(180deg);
-  filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.5));
+  filter: drop-shadow(2px 2px 2px #0bd8a2);
+
 }
 
 .btn {

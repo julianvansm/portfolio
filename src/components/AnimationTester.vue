@@ -1,6 +1,6 @@
 <template>
-  <div class="wave-top">
-    <svg class="wave wave-motion " viewBox="-600 600 3820 1334.1">
+  <div>
+    <svg class="wave" viewBox="-600 600 3820 1334.1">
       <path  fill-rule="evenodd" clip-rule="evenodd"
             d=""  ref="wavePath" fill="url(#waveGradient)"/>
       <defs>
@@ -40,40 +40,19 @@ export default {
 </script>
 
 <style scoped>
-.wave-top {
-  overflow: hidden;
-
-}
 .wave {
-
-
-}
-.wave-motion{
   overflow: hidden;
   position: relative;
   width: 3000px;
-  animation: move2 90s linear infinite;
   transform: translateX(-20%);
 }
 
-@keyframes move2 {
-  0% {
-    left: -0%;
-  }
-  50% {
-    left: -0%;
-  }
-  100%{
-    left: -0%;
-  }
-}
 
 @media screen and (max-width: 760px) {
-  .wave-motion{
+  .wave{
     overflow: hidden;
     position: relative;
     width: 3000px;
-    animation: move2 90s linear infinite;
     transform: translate(-30%, -20%);
   }
 
