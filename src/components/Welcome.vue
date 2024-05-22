@@ -1,4 +1,4 @@
-<template>
+<template class="pointer-events-none">
   <animation-tester class="-z-10 fixed"></animation-tester>
 
   <span class="z-50 fixed top-0 right-0 m-2  border-white border-2 rounded overflow-hidden">
@@ -142,7 +142,7 @@ export default defineComponent({
           image: '/images/fulllogojs.jpg',
           info: true,
           paragraph1:
-              "In my first year of software development I was tasked with making my portfolio in phpStorm using css and html." +
+              "In my first year of software development I was tasked with making my portfolio in phpStorm using the Laravel framework, css and html. I even sprinkled in some JavaScript that remembers where the reader left off when they reload the page." +
               " At the time I knew near nothing of coding thus it resulted in a simple website. This website can be found here: ",
           paragraph2Title: "Redesign",
           paragraph2:
@@ -158,6 +158,14 @@ export default defineComponent({
           description: 'The Order was my second project, it is used for an informational guide to a game and community. This also is the project where I got the chance to experiment a lot. The Order was a great learning experience.',
           image: '/images/theorder.jpg',
           link: 'https://theorder.newdeveloper.nl/',
+          info: true,
+          paragraph1:
+              "While everyone was working on their portfolio, I decided to work on a personal website, this is the Order of the Frontier. Its made in phpStorm using the Laravel framework, css, html and some JavaScript for some animations and transitions." +
+              "With this project I learned alot of the simple quirks in JavaScript.",
+          paragraph2Title: "Fantastic Frontier",
+          paragraph2:
+              " The Order of the Frontier is a website that provides lots of information and guides on how to play a game called Fantastic Frontier." +
+              " Unfortunately I no longer play this game much yet, the memories and experiences won't fade",
         },
         {
           title: 'Pecu',
