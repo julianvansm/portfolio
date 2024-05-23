@@ -2,11 +2,10 @@ import { createApp } from 'vue'
 import './style.css'
 import App from './App.vue'
 import { createRouter, createWebHistory } from 'vue-router'
-import Project from "./components/Projects/Project.vue";
 import Welcome from "./components/Welcome.vue";
-import Portfolio from "./components/Projects/Portfolio.vue";
 import AnimationTester from "@/components/AnimationTester.vue";
 import svgMan from "@/components/SvgMan.vue";
+import ProjectSmall from "@/components/Projects/ProjectSmall.vue";
 
 const routes = [
     {
@@ -17,7 +16,7 @@ const routes = [
     {
         path: '/project/:uuid',
         name: 'project',
-        component: Project
+        component: ProjectSmall
     },
     {
         path: '/test',

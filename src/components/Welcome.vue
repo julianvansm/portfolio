@@ -1,4 +1,4 @@
-<template class="pointer-events-none">
+<template>
   <animation-tester class="-z-10 fixed"></animation-tester>
 
   <span class="z-50 fixed top-0 right-0 m-2  border-white border-2 rounded overflow-hidden">
@@ -33,7 +33,7 @@
                   style="opacity: 1; transform: matrix(0.7071, 0.7071, -0.7071, 0.7071, -5, 0);"></span>
           </a>
         </div>
-        <div
+        <div :class="{ 'loadIn': loadIn, }"
             class="absolute top-0 flex-col md:top-1/2 flex md:justify-between md:flex-row flex-nowrap w-full px-10">
           <div class="w-full">
             <hgroup v-if="english === true" style=""
@@ -131,9 +131,9 @@ export default defineComponent({
       aboutPos: 0,
       projectPos: 0,
       contactPos: 0,
-      transparentTitle: false,
       english: true,
       top: true,
+      loadIn: true,
       projectsEnglish: [
         {
           title: 'Portfolio',
@@ -301,8 +301,23 @@ export default defineComponent({
 });
 </script>
 
-
 <style scoped>
+.loadIn {
+  animation-name: load;
+  animation-duration: 500ms;
+}
+
+@keyframes load {
+  from {
+    transform: translate(0%, 100%);
+    opacity: 0;
+  }
+  to {
+    transform: translate(0%, 0%);
+    opacity: 100;
+  }
+}
+
 .lan-animation {
   animation-name: lani;
   animation-duration: 3s;
