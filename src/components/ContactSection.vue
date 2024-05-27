@@ -1,6 +1,6 @@
 <template>
 
-  <div class="z-50 w-full text-white font-sans" id="About">
+  <div class="z-40 w-full text-white font-sans" id="About">
 
     <div style="background: rgb(18, 18, 18)">
       <div style="background: #00343d" class="overflow-hidden">

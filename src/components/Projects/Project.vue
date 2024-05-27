@@ -34,8 +34,11 @@
         <div class="duration-200 py-4 text-2xl max-sm:text-lg">
             <h2 class="mb-6">
               {{ project.paragraph1 }}
-              <a class="text-blue-700 hover:text-blue-500 hover:underline " v-if="project.oldLink" target="_blank"
-                 :href="project.oldLink"> {{ project.title }} </a>
+              <a class="text-blue-700 hover:text-blue-500 hover:underline " v-if="project.extraLink" target="_blank"
+                 :href="project.extraLink"> {{ project.extraLinkName }}</a>
+              <a v-if="project.extraLink2">, </a>
+              <a class="text-blue-700 hover:text-blue-500 hover:underline " v-if="project.extraLink2" target="_blank"
+                 :href="project.extraLink2">{{ project.extraLink2Name }}</a>
             </h2>
 
           <div class="flex flex-row flex-nowrap" >

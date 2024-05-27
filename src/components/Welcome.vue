@@ -20,7 +20,7 @@
     Nederlands
   </p>
 </div>
-  <div id="app">
+  <div  id="app">
     <div id="Home" class="top-0 w-0"></div>
     <div ref="intro"
          class="duration-300 sticky h-screen flex items-center justify-center z-0">
@@ -140,6 +140,7 @@ export default defineComponent({
           date: 'August 2022',
           description: "My Portfolio is the very first project I've worked on, and believe it or not you are on it right now! I went for the simple and not extensive look. This project taught me the basics of coding and website design.",
           image: '/images/fulllogojs.jpg',
+          link: '#Home',
           info: true,
           paragraph1:
               "In my first year of software development I was tasked with making my portfolio in phpStorm using the Laravel framework, css and html. I even sprinkled in some JavaScript that remembers where the reader left off when they reload the page." +
@@ -149,8 +150,8 @@ export default defineComponent({
               " Later in the second year I decided to remake my portfolio, that should be the website you are viewing right now." +
               " I decided to use vue.js, this is a powerfull frontend framework using javascript." +
               " I tried to implement many more clean animations and designs.",
-          oldLink: 'https://julian-van-smirren.newdeveloper.nl/welcomenl',
-          link: '#Home',
+          extraLink: 'https://julian-van-smirren.newdeveloper.nl/welcomenl',
+          extraLinkName: 'Portfolio',
         },
         {
           title: 'The Order of the Frontier',
@@ -187,6 +188,31 @@ export default defineComponent({
           description: 'Oma\'s Bordspellen is a Dutch webshop that offers a diverse range of board games for purchase. As part of my responsibilities, I was assigned the task of developing the product, favorites, and browse pages, as well as implementing the underlying functionality for these pages. To accomplish this, we opted to utilize ReactJS, a cutting-edge framework, and TypeScript, a powerful programming language. While initially challenging due to our team\'s lack of prior experience with this framework, I swiftly adapted and made significant strides in mastering ReactJS.',
           image: '/images/omasbordspellen.png',
           link: 'https://omas-bordspellen.newdeveloper.nl/',
+        },
+        {
+          title: 'Pokemon API',
+          date: 'March 2024',
+          description: "This project was my first look into creating my own server. The goal of the project was to make a functioning pokemon game with the use of a front and back end application. We used VueJS for the frontend and ExpressJs for the backend. I had a lot of fun with this project and learned a bunch about API applications",
+          image: '/images/pokemonapi.png',
+          info: true,
+          paragraph1:
+              "The project Pokemon Api was an amazing learning experience. " +
+              "School gave us their api, all the data of the pokemon are stored inside the api. " +
+              "I took the required data and saved this into my local database. I used Express for the backend application and Vue for the frontend. " +
+              "Luckily I didn't have any experience so I got to invest lots of time into experimenting and learning. I loved learning the twists and turns of the software. Along with express and vue I used websockets for the communication between the two applications." +
+              "This project was a client-side project which means that all I can show you are the repositories",
+          paragraph2Title: "Battle Mechanism",
+          paragraph2:
+              " To give a little more information as to how the battles work. Each game requires two users, these users are in the lobby before the game starts. Player one clicks on a 'play' button, this sends an invite to all other players in the lobby." +
+              "The other player is now required to accept the invitation and all both the players get sent to the pokemon selection screen. " +
+              "In the selection screen the user can choose their own pokemon or take a chance with a dice roll." +
+              "As soon as both players how chosen their pokemon and are ready to fight, they get sent to the battle room where the damage of each pokemon and their health is put against eachother." +
+              "The battle is won by the player that still has a pokemon with a health value of more than zero.",
+          extraLink: 'https://github.com/julianvansm/pokedex-front',
+          extraLinkName: 'Frontend',
+          extraLink2: 'https://github.com/julianvansm/pokemon-api-main',
+          extraLink2Name: 'Backend',
+
         },
       ],
       projectsDutch: [
@@ -237,44 +263,38 @@ export default defineComponent({
     SvgMan,
 
   },
+  beforeUnmount() {
+    localStorage.setItem('scrollPosition', window.scrollY);
+
+  },
   mounted() {
     this.getProjectRect();
     this.getAboutRect();
     this.getContactRect();
-    const updateScrollPositions = debounce(() => { //use debounce for performance
-      this.getProjectRect();
-      this.getAboutRect();
-      this.getContactRect();
-    }, 10);
+    const savedPosition = localStorage.getItem('scrollPosition');
+    if (savedPosition) {
+      window.scrollTo(0, parseInt(savedPosition));
+      localStorage.removeItem('scrollPosition'); // Optional: Clear storage after use
+    }
+    window.addEventListener("scroll", () => {
+      this.scrollPos.value = window.scrollY;
+    });
 
-    window.addEventListener("scroll", updateScrollPositions);
-    window.addEventListener('scroll', this.handleScroll);
-    const wavyLine = this.$refs.wavyLine; // Get the element reference
+    const wavyLine = this.$refs.wavyLine;
 
     anime({
-      targets: wavyLine, // Target the actual element
-      translateX: [-5, 5], // Animation range (in pixels)
-      easing: 'easeInOutSine', // Animation easing function
-      duration: 1500, // Animation duration (in milliseconds)
-      loop: true, // Loop the animation indefinitely
-      direction: 'alternate', // Alternate between forward and backward movement
+      targets: wavyLine,
+      translateX: [-5, 5],
+      easing: 'easeInOutSine',
+      duration: 1500,
+      loop: true,
+      direction: 'alternate',
     });
 
   },
-  setup() {
-    const scrollPos = ref(0);
-
-    return {
-      scrollPos,
-    };
-  },
 
   methods: {
-    handleScroll() {
-      const scrollTop = window.scrollY;
 
-      this.top = scrollTop >= 0 && scrollTop <= 100;
-    },
     async getContactRect() {
       const contact = await this.$refs.contact;
       if (contact) {

@@ -1,9 +1,11 @@
 <template>
-  <div class="gradient shadow project-container-extra p-3 sm:m-8 my-8 rounded-xl flex flex-col items-stretch">
-    <a :href="project.link" target="_blank" class="bg-gray-700 relative rounded">
+  <div  class="project-container-extra gradient shadow p-3 sm:m-8 my-8 rounded-xl flex flex-col items-stretch">
+    <a v-if="project.link" :href="project.link" target="_blank" class="bg-gray-700 relative rounded">
 
       <img class="flex justify-center items-center rounded hover:opacity-20" :src="project.image" :alt="project.title"/>
     </a>
+    <img v-if="!project.link" class="flex justify-center items-center rounded " :src="project.image" :alt="project.title"/>
+
     <div class="mt-4 h-full bg-white flex flex-col justify-between rounded-lg overflow-y-auto">
       <div class=" flex justify-between mb-3 p-2 border-gray-800 border-b-2">
 
@@ -51,15 +53,17 @@ export default {
       const screenWidth = window.innerWidth;
 
 
-      if (screenWidth < 900) {
-        // Redirect to project details with data and ID
+      if (screenWidth < 600) {
         this.router.push({
           path: `/project/${this.project.title}`,
           query: this.project,
         });
       } else {
-        this.moreInfo = this.moreInfo !== true;
-        console.log(this.moreInfo)      }
+        this.router.push({
+          path: `pc/project/${this.project.title}`,
+          query: this.project,
+        });
+      }
     }
   }
 };
