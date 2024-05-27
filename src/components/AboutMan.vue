@@ -1,7 +1,8 @@
 <template>
 
-  <lottie-animation  style="transform:scale(-1, 1);"
-      path="./kitty.json"
+  <lottie-animation
+      style="transform:scale(-1, 1); width: 40%;"
+      path="./about.json"
   />
 
 </template>
