@@ -71,7 +71,11 @@
           <div class="sticky z-30">
             <div style="background: #00343d;" class=" w-full flex justify-center">
               <div class="w-min">
-                <h2 class="text-6xl max-sm:text-5xl text-white text-center pt-4"
+                <h2 v-if="english === false" class="text-6xl max-sm:text-5xl text-white text-center pt-4"
+                    style="background: #00343d; -webkit-text-stroke: 1px #000000;">
+                  Projecten
+                </h2>
+                <h2 v-if="english === true" class="text-6xl max-sm:text-5xl text-white text-center pt-4"
                     style="background: #00343d; -webkit-text-stroke: 1px #000000;">
                   Projects
                 </h2>
@@ -86,9 +90,9 @@
             <div style="background: #00343d; " class="box mask last"></div>
           </div>
           <div class="project-card-wrapper min-h-screen z-20 ">
-            <ProjectCard v-if="english === true" v-for="project in projectsEnglish" :key="project.title"
+            <ProjectCard v-if="english === true" v-for="project in projectsEnglish.slice().reverse()" :key="project.title"
                          :project="project"/>
-            <ProjectCard v-if="english === false" v-for="project in projectsDutch" :key="project.title"
+            <ProjectCard v-if="english === false" v-for="project in projectsDutch.slice().reverse()" :key="project.title"
                          :project="project"/>
 
 
@@ -127,11 +131,8 @@ function debounce(func, delay) {
 export default defineComponent({
   data() {
     return {
-      scrollPos: 0,
-      aboutPos: 0,
-      projectPos: 0,
       contactPos: 0,
-      english: true,
+      english: undefined,
       top: true,
       loadIn: true,
       projectsEnglish: [
@@ -171,28 +172,43 @@ export default defineComponent({
         {
           title: 'Pecu',
           date: 'Dec-Jan 2022-2023',
-          description: 'Pecu was the second official school project, We were tasked with creating a website for money managing purposes. This project taught me how to work in a team and how to come up with interesting and creative ways to create graphs and database connections.',
+          description: 'Pecu was the second official school project, We were tasked with creating a website for money managing purposes.',
           image: '/images/pecu.jpg',
           link: 'https://pecu.newdeveloper.nl/',
+          info: true,
+          paragraph1:
+              "We were tasked with creating a website for money managing purposes. This project taught me how to work in a team and how to come up with interesting and creative ways to create graphs and database connections.",
         },
         {
           title: 'Mastermind',
           date: 'Feb-Maart 2023',
-          description: 'Mastermind was the third school project. In this project, a classmate and I were assigned to create the game Mastermind. The game had to be easy to understand, with a scoreboard and an explanation page. We were required to minimize page refreshing for this project, so we used JavaScript. This was my first time working with JavaScript. I not only learned a lot about JavaScript but also realized the importance of good preparation.',
+          description: 'Mastermind was the third school project. In this project, a classmate and I were assigned to create the game Mastermind. The game had to be easy to understand.',
           image: '/images/mastermind.png',
           link: 'https://brainsinc.newdeveloper.nl/',
+          info: true,
+          paragraph1:
+              "Mastermind was the third school project. In this project, a classmate and I were assigned to create the game Mastermind. The game had to be easy to understand. You can play it here:",
+          paragraph2Title: "Details",
+          paragraph2:
+              " Mastermind required a scoreboard and an explanation page. We were also required to minimize page refreshing for this project, we did this by using JavaScript for all the game mechanics. This was my first time using this much JavaScript for a project. I not only learned a lot about JavaScript but also realized the importance of good preparation.",
         },
         {
           title: "Oma's Bordspellen",
           date: 'Apr-Jul 2023',
-          description: 'Oma\'s Bordspellen is a Dutch webshop that offers a diverse range of board games for purchase. As part of my responsibilities, I was assigned the task of developing the product, favorites, and browse pages, as well as implementing the underlying functionality for these pages. To accomplish this, we opted to utilize ReactJS, a cutting-edge framework, and TypeScript, a powerful programming language. While initially challenging due to our team\'s lack of prior experience with this framework, I swiftly adapted and made significant strides in mastering ReactJS.',
+          description: 'Oma\'s Bordspellen is a Dutch webshop that offers a diverse range of board games for purchase.',
           image: '/images/omasbordspellen.png',
           link: 'https://omas-bordspellen.newdeveloper.nl/',
+          info: true,
+          paragraph1:
+              "For 'oma's bordspellen' we needed to focus on the frontend a lot, I opted to utilize ReactJS (a cutting-edge frontend framework), and TypeScript (a powerful programming language). Whilst initially challenging due to our team's lack of prior experience with this framework, I swiftly adapted and made significant strides in mastering ReactJS.",
+          paragraph2Title: "My Responsibilities",
+          paragraph2:
+              "I was assigned the task of developing the product, favorites, and browse pages, as well as implementing the underlying functionality for these pages.",
         },
         {
           title: 'Pokemon API',
           date: 'March 2024',
-          description: "This project was my first look into creating my own server. The goal of the project was to make a functioning pokemon game with the use of a front and back end application. We used VueJS for the frontend and ExpressJs for the backend. I had a lot of fun with this project and learned a bunch about API applications",
+          description: "This project was my first look into creating my own server. The goal of the project was to make a functioning pokemon game with the use of a front and back end application. We used VueJS and ExpressJs.",
           image: '/images/pokemonapi.png',
           info: true,
           paragraph1:
@@ -200,7 +216,7 @@ export default defineComponent({
               "School gave us their api, all the data of the pokemon are stored inside the api. " +
               "I took the required data and saved this into my local database. I used Express for the backend application and Vue for the frontend. " +
               "Luckily I didn't have any experience so I got to invest lots of time into experimenting and learning. I loved learning the twists and turns of the software. Along with express and vue I used websockets for the communication between the two applications." +
-              "This project was a client-side project which means that all I can show you are the repositories",
+              "This project was a client-side project which means that all I can show you are the repositories:",
           paragraph2Title: "Battle Mechanism",
           paragraph2:
               " To give a little more information as to how the battles work. Each game requires two users, these users are in the lobby before the game starts. Player one clicks on a 'play' button, this sends an invite to all other players in the lobby." +
@@ -219,37 +235,96 @@ export default defineComponent({
         {
           title: 'Portfolio',
           date: 'Augustus 2022',
-          description: "Dit is mijn allereerste project: de portfolio die je nu doorbladert! Ik heb het voor deze clean en functioneel gehouden, maar het was een geweldige springplank om de basis van coderen en webdesign te leren.",
+          description: "Mijn portfolio is het allereerste project waar ik aan heb gewerkt, en geloof het of niet, u bent er nu op! Ik koos voor de eenvoudige en niet-uitgebreide look. Dit project leerde me de basis van coderen en websiteontwerp.",
           image: '/images/fulllogojs.jpg',
           link: '#Home',
+          info: true,
+          paragraph1:
+              "In mijn eerste jaar softwareontwikkeling kreeg ik de opdracht om mijn portfolio te maken in phpStorm met behulp van het Laravel-framework, css en html. Ik heb er zelfs wat JavaScript ingestrooid dat onthoudt waar de lezer is gebleven bij het herladen van de pagina." +
+              " Destijds wist ik zo goed als niets van coderen, waardoor het resulteerde in een eenvoudige website. Deze website is hier te vinden: ",
+          paragraph2Title: "Herontwerp",
+          paragraph2:
+              " Later in het tweede jaar besloot ik mijn portfolio opnieuw te maken, dat zou de website moeten zijn die u nu bekijkt." +
+              " Ik koos ervoor om vue.js te gebruiken, dit is een krachtig frontend-framework met behulp van javascript." +
+              " Ik heb geprobeerd veel meer schone animaties en ontwerpen te implementeren.",
+          extraLink: 'https://julian-van-smirren.newdeveloper.nl/welcomenl',
+          extraLinkName: 'Portfolio',
         },
         {
-          title: 'De Orde van de Frontier',
+          title: 'The Order of the Frontier',
           date: 'Augustus 2022',
-          description: 'The Order was mijn tweede project. Het is een informatieve gids voor een game en zijn community. Dit is ook het project waar ik de kans kreeg om veel te experimenteren. The Order was een geweldige leerervaring.',
+          description: 'The Orde was mijn tweede project, het wordt gebruikt voor een informatieve gids bij een game en community. In dit project kreeg ik de kans kreeg om veel te experimenteren met JavaScript.',
           image: '/images/theorder.jpg',
           link: 'https://theorder.newdeveloper.nl/',
+          info: true,
+          paragraph1:
+              "Terwijl iedereen aan hun portfolio werkte, besloot ik aan een persoonlijke website te werken, dit is de Orde van de Frontier. Het is gemaakt in phpStorm met behulp van het Laravel-framework, css, html en wat JavaScript voor enkele animaties en overgangen." +
+              " Met dit project heb ik veel geleerd over de eenvoudige eigenaardigheden van JavaScript.",
+          paragraph2Title: "Fantastische Frontier",
+          paragraph2:
+              " De Orde van de Frontier is een website met veel informatie en gidsen over het spelen van een game genaamd Fantastic Frontier." +
+              " Helaas speel ik deze game niet veel meer, maar de herinneringen en ervaringen zullen niet vervagen",
         },
         {
           title: 'Pecu',
           date: 'Dec-Jan 2022-2023',
-          description: 'Pecu was het tweede officiële schoolproject. We kregen de opdracht om een website te maken voor geldbeheer. Dit project leerde me hoe ik in een team kan werken en hoe ik op interessante en creatieve manieren grafieken en databaseverbindingen kan maken.',
+          description: 'Pecu was het tweede officiële schoolproject, we kregen de opdracht om een website te maken voor geldbeheerdoeleinden.',
           image: '/images/pecu.jpg',
           link: 'https://pecu.newdeveloper.nl/',
+          info: true,
+          paragraph1:
+              "We kregen de opdracht om een website te maken voor geldbeheerdoeleinden. Dit project leerde me hoe ik in een team kan werken en hoe ik op interessante en creatieve manieren grafieken en databaseverbindingen kan maken.",
         },
         {
           title: 'Mastermind',
           date: 'Feb-Maart 2023',
-          description: 'Mastermind was het derde schoolproject. In dit project moesten mijn klasgenoot en ik het spel Mastermind creëren. Het spel moest gemakkelijk te begrijpen zijn, met een scorebord en een uitlegpagina. We moesten voor dit project het vernieuwen van de pagina minimaliseren, dus gebruikten we JavaScript. Dit was mijn eerste keer dat ik met JavaScript werkte. Ik leerde niet alleen veel over JavaScript, maar realiseerde me ook het belang van een goede voorbereiding.',
+          description: 'Mastermind was het derde schoolproject. In dit project kregen een klasgenoot en ik de opdracht om het spel Mastermind te maken. Het spel moest gemakkelijk te begrijpen zijn.',
           image: '/images/mastermind.png',
           link: 'https://brainsinc.newdeveloper.nl/',
+          info: true,
+          paragraph1:
+              "Mastermind was het derde schoolproject. In dit project kregen een klasgenoot en ik de opdracht om het spel Mastermind te maken. Het spel moest gemakkelijk te begrijpen zijn. Je kunt het hier spelen:",
+          paragraph2Title: "Details",
+          paragraph2:
+              " Mastermind vereiste een scorebord en een uitlegpagina. We moesten ook het vernieuwen van pagina's voor dit project minimaliseren, we deden dit door JavaScript te gebruiken voor alle spelmechanismen. Dit was de eerste keer dat ik zoveel JavaScript gebruikte voor een project. Ik leerde hierdoor niet alleen veel over JavaScript, maar realiseerde me ook het belang van een goede voorbereiding.",
         },
         {
           title: "Oma's Bordspellen",
           date: 'Apr-Jul 2023',
-          description: "Oma's Bordspellen is een Nederlandse webshop die een divers aanbod aan bordspellen te koop aanbiedt. Als onderdeel van mijn verantwoordelijkheden kreeg ik de taak om de product-, favorieten- en browse-pagina's te ontwikkelen, evenals de onderliggende functionaliteit voor deze pagina's te implementeren. Om dit te bereiken, hebben we gekozen voor ReactJS, een modern framework, en TypeScript, een krachtige programmeertaal. Hoewel het in het begin een uitdaging was vanwege het gebrek aan ervaring van ons team met dit framework, paste ik me snel aan en boekte ik grote vooruitgang in het beheersen van ReactJS.",
+          description: 'Oma\'s Bordspellen is een Nederlandse webshop die een divers aanbod van bordspellen te koop aanbiedt.',
           image: '/images/omasbordspellen.png',
           link: 'https://omas-bordspellen.newdeveloper.nl/',
+          info: true,
+          paragraph1:
+              "Voor 'oma's bordspellen moesten we ons veel op de frontend richten, ik koos ervoor om ReactJS (een geavanceerd frontend-framework) en TypeScript (een krachtige programmeertaal) te gebruiken. Hoewel dit in eerste instantie een uitdaging was vanwege het gebrek aan eerdere ervaring met dit framework binnen ons team, paste ik me snel aan en boekte ik grote vooruitgang in het onder de knie krijgen van ReactJS.",
+          paragraph2Title: "Mijn Verantwoordelijkheden",
+          paragraph2:
+              "Ik kreeg de taak om de product-, favorieten- en browse-pagina's te ontwikkelen, evenals het implementeren van de onderliggende functionaliteit voor deze pagina's.",
+        },
+
+        {
+          title: 'Pokemon API',
+          date: 'March 2024',
+          description: "Voor dit project werkte ik met een eigen server. Het doel van het project was om een functioneel pokemon-spel te maken met behulp van een front-end en back-end applicatie. We gebruikten VueJS en ExpressJs.",
+          image: '/images/pokemonapi.png',
+          info: true,
+          paragraph1:
+              "Het project Pokemon Api was een geweldige leerervaring. " +
+              "De school gaf ons hun api, alle data van de pokemon zijn opgeslagen in de api. " +
+              "Ik nam de benodigde data en slaagde dit op in mijn lokale database. Ik gebruikte Express voor de back-end applicatie en Vue voor de front-end. " +
+              "Gelukkig had ik nog geen ervaring, dus ik kon veel tijd investeren in experimenteren en leren. Ik vond het heerlijk om de wendingen en kronkels van de software te leren. Naast express en vue gebruikte ik websockets voor de communicatie tussen de twee applicaties." +
+              "Dit project was een client-side project, wat betekent dat ik u alleen de repositories kan laten zien:",
+          paragraph2Title: "Gevechtsmechanisme",
+          paragraph2:
+              " Om wat meer informatie te geven over hoe de gevechten werken. Elke game vereist twee gebruikers, deze gebruikers bevinden zich in de lobby voordat het spel begint. Speler één klikt op een 'spelen'-knop, dit stuurt een uitnodiging naar alle andere spelers in de lobby." +
+              "De andere speler moet nu de uitnodiging accepteren en allebei de spelers worden naar het scherm voor pokemonselectie gestuurd. " +
+              "Op het selectiescherm kan de gebruiker zijn eigen pokemon kiezen of een gokje wagen met een dobbelsteenworp." +
+              "Zodra beide spelers hun pokemon hebben gekozen en klaar zijn om te vechten, worden ze naar de vechtkamer gestuurd waar de schade van elke pokemon en hun gezondheid tegen elkaar worden afgezet." +
+              "De winnaar van het gevecht is de speler die nog een pokemon heeft met een gezondheidswaarde van meer dan nul.",
+          extraLink: 'https://github.com/julianvansm/pokedex-front',
+          extraLinkName: 'Frontend',
+          extraLink2: 'https://github.com/julianvansm/pokemon-api-main',
+          extraLink2Name: 'Backend',
         },
       ],
 
@@ -274,12 +349,11 @@ export default defineComponent({
     const savedPosition = localStorage.getItem('scrollPosition');
     if (savedPosition) {
       window.scrollTo(0, parseInt(savedPosition));
-      localStorage.removeItem('scrollPosition'); // Optional: Clear storage after use
+      localStorage.removeItem('scrollPosition');
     }
-    window.addEventListener("scroll", () => {
-      this.scrollPos.value = window.scrollY;
-    });
+    console.log(localStorage.getItem('lan'))
 
+    this.english = localStorage.getItem('lan') === 'true';
     const wavyLine = this.$refs.wavyLine;
 
     anime({
@@ -316,6 +390,8 @@ export default defineComponent({
     },
     async lan() {
       this.english = this.english !== true;
+      localStorage.removeItem('lan');
+      localStorage.setItem('lan', this.english);
     }
   },
 });

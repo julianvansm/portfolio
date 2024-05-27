@@ -1,8 +1,9 @@
 <template>
-
+  <img class="fixed top-0 left-0 bg-cover w-full -z-10"  :src="$route.query.image"
+       alt="Project background image" />
   <div
-      style="background: #00343d"
-      class="w-full overflow-x-hidden h-full pt-10 text-white z-50"
+      style="background: rgba(0,52,61,0.82)"
+      class="w-full overflow-x-hidden h-screen pt-10 text-white z-50"
       id="app">
     <button class="z-50 fixed top-5 left-5" @click="this.unLoad()">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white"
@@ -37,13 +38,15 @@
       <div class="sm:p-2" style="max-width: 1002px;">
         <div class="duration-200 py-4 text-2xl ">
           <h2 :class="{ 'loadIn1': loadIn, }" class="mb-6">
+            <img v-if="!$route.query.paragraph2" class="ml-1 w-1/2 float-right" height="400" width="400" :src="$route.query.image"
+                 alt="Project background image" />
             {{ $route.query.paragraph1 }}
-            <a class="text-blue-700 hover:text-blue-500 hover:underline " v-if="$route.query.link && !$route.query.extraLink" target="_blank"
+            <a class="text-blue-600 hover:text-blue-500 hover:underline " v-if="$route.query.link && !$route.query.extraLink" target="_blank"
                :href="$route.query.link"> {{ $route.query.title }}</a>
-            <a class="text-blue-700 hover:text-blue-500 hover:underline " v-if="$route.query.extraLink" target="_blank"
+            <a class="text-blue-600 hover:text-blue-500 hover:underline " v-if="$route.query.extraLink" target="_blank"
                :href="$route.query.extraLink"> {{ $route.query.extraLinkName }}</a>
             <a v-if="$route.query.extraLink2">, </a>
-            <a class="text-blue-700 hover:text-blue-500 hover:underline " v-if="$route.query.extraLink2" target="_blank"
+            <a class="text-blue-600 hover:text-blue-500 hover:underline " v-if="$route.query.extraLink2" target="_blank"
                :href="$route.query.extraLink2">{{ $route.query.extraLink2Name }}</a>
           </h2>
 
@@ -54,9 +57,8 @@
                 {{ $route.query.paragraph2Title }}:
 
               </h3>
-                <img class="ml-1 w-1/2 float-right" height="400" width="400" :src="$route.query.image"
+                <img v-if="$route.query.paragraph2" class="ml-1 w-1/2 float-right" height="400" width="400" :src="$route.query.image"
                      alt="Project background image" />
-
 
                 <h3 class="">
 
@@ -88,6 +90,10 @@ export default {
       unload: false,
       loadIn: true,
     }
+  },
+  mounted() {
+    window.scrollTo(0,0);
+
   },
   setup() {
     const router = useRouter();
