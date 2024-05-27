@@ -38,7 +38,7 @@
         <div class="duration-200 py-4 text-2xl ">
           <h2 :class="{ 'loadIn1': loadIn, }" class="mb-6">
             {{ $route.query.paragraph1 }}
-            <a class="text-blue-700 hover:text-blue-500 hover:underline " v-if="$route.query.link" target="_blank"
+            <a class="text-blue-700 hover:text-blue-500 hover:underline " v-if="$route.query.link && !$route.query.extraLink" target="_blank"
                :href="$route.query.link"> {{ $route.query.title }}</a>
             <a class="text-blue-700 hover:text-blue-500 hover:underline " v-if="$route.query.extraLink" target="_blank"
                :href="$route.query.extraLink"> {{ $route.query.extraLinkName }}</a>
