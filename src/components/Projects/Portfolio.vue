@@ -10,7 +10,7 @@
          Portfolio
        </h2>
        <div class="container">
-         <div class="text-red-500">*</div>
+         <div class="text-Purple">*</div>
          <div class="line line-1"></div>
          <div class="line line-2"></div>
        </div>

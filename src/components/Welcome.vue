@@ -76,7 +76,7 @@
                   Projects
                 </h2>
                 <div class="container">
-                  <div class="text-red-500">*</div>
+                  <div class="text-Purple">*</div>
                   <div class="line line-1"></div>
                   <div class="line line-2"></div>
                 </div>
@@ -354,14 +354,12 @@ export default defineComponent({
   font-size: 20px;
 }
 
-.about-wrapper.sticky {
-  top: -3px;
 
-}
 
 .about-wrapper {
   background: #00343d;
   border-top: #0bd8a2 solid 3px;
+  top: -3px;
 }
 
 .project-card-wrapper {
