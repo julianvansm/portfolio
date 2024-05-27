@@ -235,35 +235,35 @@ export default defineComponent({
         {
           title: 'Portfolio',
           date: 'Augustus 2022',
-          description: "Mijn portfolio is het allereerste project waar ik aan heb gewerkt, en geloof het of niet, u bent er nu op! Ik koos voor de eenvoudige en niet-uitgebreide look. Dit project leerde me de basis van coderen en websiteontwerp.",
+          description: "Mijn portfolio is het allereerste project waar ik aan heb gewerkt, en geloof het of niet, u bent er nu op! Ik koos voor de eenvoudige en niet-uitgebreide look. Dit project leerde me de basis van coderen en websiteontwerp. ",
           image: '/images/fulllogojs.jpg',
           link: '#Home',
           info: true,
           paragraph1:
-              "In mijn eerste jaar softwareontwikkeling kreeg ik de opdracht om mijn portfolio te maken in phpStorm met behulp van het Laravel-framework, css en html. Ik heb er zelfs wat JavaScript ingestrooid dat onthoudt waar de lezer is gebleven bij het herladen van de pagina." +
+              "In mijn eerste jaar softwareontwikkeling kreeg ik de opdracht om mijn portfolio te maken in phpStorm met behulp van het Laravel-framework, css en html. Ik heb er zelfs wat JavaScript ingestrooid dat onthoudt waar de lezer is gebleven bij het herladen van de pagina. " +
               " Destijds wist ik zo goed als niets van coderen, waardoor het resulteerde in een eenvoudige website. Deze website is hier te vinden: ",
           paragraph2Title: "Herontwerp",
           paragraph2:
-              " Later in het tweede jaar besloot ik mijn portfolio opnieuw te maken, dat zou de website moeten zijn die u nu bekijkt." +
-              " Ik koos ervoor om vue.js te gebruiken, dit is een krachtig frontend-framework met behulp van javascript." +
-              " Ik heb geprobeerd veel meer schone animaties en ontwerpen te implementeren.",
+              " Later in het tweede jaar besloot ik mijn portfolio opnieuw te maken, dat zou de website moeten zijn die u nu bekijkt. " +
+              " Ik koos ervoor om vue.js te gebruiken, dit is een krachtig frontend-framework met behulp van javascript. " +
+              " Ik heb geprobeerd veel meer schone animaties en ontwerpen te implementeren. ",
           extraLink: 'https://julian-van-smirren.newdeveloper.nl/welcomenl',
           extraLinkName: 'Portfolio',
         },
         {
           title: 'The Order of the Frontier',
           date: 'Augustus 2022',
-          description: 'The Orde was mijn tweede project, het wordt gebruikt voor een informatieve gids bij een game en community. In dit project kreeg ik de kans kreeg om veel te experimenteren met JavaScript.',
+          description: 'The Orde was mijn tweede project, het wordt gebruikt voor een informatieve gids bij een game en community. In dit project kreeg ik de kans kreeg om veel te experimenteren met JavaScript. ',
           image: '/images/theorder.jpg',
           link: 'https://theorder.newdeveloper.nl/',
           info: true,
           paragraph1:
-              "Terwijl iedereen aan hun portfolio werkte, besloot ik aan een persoonlijke website te werken, dit is de Orde van de Frontier. Het is gemaakt in phpStorm met behulp van het Laravel-framework, css, html en wat JavaScript voor enkele animaties en overgangen." +
-              " Met dit project heb ik veel geleerd over de eenvoudige eigenaardigheden van JavaScript.",
+              "Terwijl iedereen aan hun portfolio werkte, besloot ik aan een persoonlijke website te werken, dit is de Orde van de Frontier. Het is gemaakt in phpStorm met behulp van het Laravel-framework, css, html en wat JavaScript voor enkele animaties en overgangen. " +
+              " Met dit project heb ik veel geleerd over de eenvoudige eigenaardigheden van JavaScript. ",
           paragraph2Title: "Fantastische Frontier",
           paragraph2:
-              " De Orde van de Frontier is een website met veel informatie en gidsen over het spelen van een game genaamd Fantastic Frontier." +
-              " Helaas speel ik deze game niet veel meer, maar de herinneringen en ervaringen zullen niet vervagen",
+              " De Orde van de Frontier is een website met veel informatie en gidsen over het spelen van een game genaamd Fantastic Frontier. " +
+              " Helaas speel ik deze game niet veel meer, maar de herinneringen en ervaringen zullen niet vervagen. ",
         },
         {
           title: 'Pecu',
@@ -312,15 +312,15 @@ export default defineComponent({
               "Het project Pokemon Api was een geweldige leerervaring. " +
               "De school gaf ons hun api, alle data van de pokemon zijn opgeslagen in de api. " +
               "Ik nam de benodigde data en slaagde dit op in mijn lokale database. Ik gebruikte Express voor de back-end applicatie en Vue voor de front-end. " +
-              "Gelukkig had ik nog geen ervaring, dus ik kon veel tijd investeren in experimenteren en leren. Ik vond het heerlijk om de wendingen en kronkels van de software te leren. Naast express en vue gebruikte ik websockets voor de communicatie tussen de twee applicaties." +
-              "Dit project was een client-side project, wat betekent dat ik u alleen de repositories kan laten zien:",
+              "Gelukkig had ik nog geen ervaring, dus ik kon veel tijd investeren in experimenteren en leren. Ik vond het heerlijk om de wendingen en kronkels van de software te leren. Naast express en vue gebruikte ik websockets voor de communicatie tussen de twee applicaties. " +
+              "Dit project was een client-side project, wat betekent dat ik u alleen de repositories kan laten zien: ",
           paragraph2Title: "Gevechtsmechanisme",
           paragraph2:
-              " Om wat meer informatie te geven over hoe de gevechten werken. Elke game vereist twee gebruikers, deze gebruikers bevinden zich in de lobby voordat het spel begint. Speler één klikt op een 'spelen'-knop, dit stuurt een uitnodiging naar alle andere spelers in de lobby." +
+              " Om wat meer informatie te geven over hoe de gevechten werken. Elke game vereist twee gebruikers, deze gebruikers bevinden zich in de lobby voordat het spel begint. Speler één klikt op een 'spelen'-knop, dit stuurt een uitnodiging naar alle andere spelers in de lobby. " +
               "De andere speler moet nu de uitnodiging accepteren en allebei de spelers worden naar het scherm voor pokemonselectie gestuurd. " +
-              "Op het selectiescherm kan de gebruiker zijn eigen pokemon kiezen of een gokje wagen met een dobbelsteenworp." +
-              "Zodra beide spelers hun pokemon hebben gekozen en klaar zijn om te vechten, worden ze naar de vechtkamer gestuurd waar de schade van elke pokemon en hun gezondheid tegen elkaar worden afgezet." +
-              "De winnaar van het gevecht is de speler die nog een pokemon heeft met een gezondheidswaarde van meer dan nul.",
+              "Op het selectiescherm kan de gebruiker zijn eigen pokemon kiezen of een gokje wagen met een dobbelsteenworp. " +
+              "Zodra beide spelers hun pokemon hebben gekozen en klaar zijn om te vechten, worden ze naar de vechtkamer gestuurd waar de schade van elke pokemon en hun gezondheid tegen elkaar worden afgezet. " +
+              "De winnaar van het gevecht is de speler die nog een pokemon heeft met een gezondheidswaarde van meer dan nul. ",
           extraLink: 'https://github.com/julianvansm/pokedex-front',
           extraLinkName: 'Frontend',
           extraLink2: 'https://github.com/julianvansm/pokemon-api-main',
