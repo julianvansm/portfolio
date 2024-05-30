@@ -181,7 +181,7 @@ export default defineComponent({
         },
         {
           title: 'Mastermind',
-          date: 'Feb-Maart 2023',
+          date: 'Feb-March 2023',
           description: 'Mastermind was the third school project. In this project, a classmate and I were assigned to create the game Mastermind. The game had to be easy to understand.',
           image: '/images/mastermind.png',
           link: 'https://brainsinc.newdeveloper.nl/',
@@ -229,6 +229,43 @@ export default defineComponent({
           extraLink2: 'https://github.com/julianvansm/pokemon-api-main',
           extraLink2Name: 'Backend',
 
+        },
+        {
+          title: 'Fresh Air',
+          date: 'May 2024',
+          description: "Fresh air was a follow up project from the pokemonAPI. The difference this time was that we worked in a team and had to create a front and backend with that displays the quality of the air. ",
+          image: '/images/fresh-air-pic1.png',
+          info: true,
+          paragraph1:
+              "For the Fresh Air project we were given an air sensor called air-gradient-one. " +
+              "We were tasked with pulling the data from the monitor's api and save that on our backend application, which then in return is displayed on the frontend for each user. " +
+              "All the data is updated at a 10 second interval. Unfortunitely this project is in use by our school which prohibits me from sharing the source code.",
+          paragraph2Title: "My Responsibilities",
+          paragraph2:
+              "I was tasked with creating the monitor page, this includes but is not limited to: " +
+              "creating the connection between front and backend, setting up the api connections and requests, designing the frontend, setting up the database for the monitors, saving the correct sensors for each monitor and making the adding, deleting and editing functionalities.",
+          paragraph3Title: "My Process",
+
+          paragraph3:
+              "The first task was to create the frontend project. " +
+              "I started to designing of the website. " +
+              "In the mean time my team mate was setting up the backend application, once this was done I set-up the front and back to frontend connections with the socket.io. " +
+              "After this task was done I started researching the Air-monitor's api. As it turned out, it was quite simple, the data can be received with a simple axios request. I set up the connections in the backend application to get the values for the CO2, humidity and temperature sensors. " +
+              "Once this value is received it gets sent to all the frontend applications at a 10 second interval " +
+              "Now, I was in the last stretch. At this moment the frontend receives data from the backend application's database for the monitor's name, ip, locations, sensors and type. (the type is not very important. It is simply the difference between the outside or inside version of the monitor.) " +
+              "The last thing to do now was to do a finishing check of my work. I tested all functionalities and tried overloading the server to see if there is a problematic bottleneck in the system. " +
+              "Turns out, there was. " +
+              "This was related to the frontend sending way to many individual requests to the server which slows it down significantly. " +
+              "After combining many requests into a few big requests the problem was solved." +
+              "I used this method because large requests are less demanding than many smaller requests.",
+          paragraph3Image: '/images/fresh-air-pic2.png',
+          paragraph4Title: "Finally, what have I learned?",
+
+          paragraph4:
+              "I have gained invaluable experience with ExpressJs and VueJs. Also, it was great to get a bit of memory refreshment with the database work. " +
+              "Of course there is always the frontend design work that I enjoy very much and I keep learning more interesting tricks for my designs. " +
+              "I am very pleased with the results of this project.",
+          paragraph4Image: '/images/fresh-air-pic3.png',
         },
       ],
       projectsDutch: [
@@ -304,7 +341,7 @@ export default defineComponent({
 
         {
           title: 'Pokemon API',
-          date: 'March 2024',
+          date: 'Maart 2024',
           description: "Voor dit project werkte ik met een eigen server. Het doel van het project was om een functioneel pokemon-spel te maken met behulp van een front-end en back-end applicatie. We gebruikten VueJS en ExpressJs.",
           image: '/images/pokemonapi.png',
           info: true,
@@ -326,6 +363,41 @@ export default defineComponent({
           extraLink2: 'https://github.com/julianvansm/pokemon-api-main',
           extraLink2Name: 'Backend',
         },
+        {
+          title: 'Fresh Air',
+          date: 'Mei 2024',
+          description: "Fresh Air was een vervolgproject op het pokemonAPI. Het verschil was dit keer dat we in een team werkten en een front-end en back-end applicatie moesten creëren die de luchtkwaliteit weergeeft.",
+          image: '/images/fresh-air-pic1.png',
+          info: true,
+          paragraph1:
+              "Voor het Fresh Air project kregen we een luchtsensor genaamd air-gradient-one. " +
+              "We kregen de opdracht om de data van de API van de monitor te halen en op onze back-end applicatie op te slaan, die vervolgens op de front-end voor elke gebruiker wordt weergegeven. " +
+              "Alle data wordt om de 10 seconden geüpdatet. Helaas wordt dit project door onze school gebruikt, waardoor ik de broncode niet mag delen.",
+          paragraph2Title: "Mijn Verantwoordelijkheden",
+          paragraph2:
+              "Ik was belast met het creëren van de monitorpagina, dit omvat, maar is niet beperkt tot: " +
+              "het creëren van de verbinding tussen front-end en back-end, het instellen van de API-verbindingen en -aanvragen, het ontwerpen van de front-end, het instellen van de database voor de monitoren, het opslaan van de juiste sensoren voor elke monitor en het maken van de toevoegingen, verwijderingen en bewerkingsfunctionaliteiten.",
+          paragraph3Title: "Mijn Werk",
+          paragraph3:
+              "De eerste taak was het creëren van het front-end project. " +
+              "Ik begon met het ontwerpen van de website. " +
+              "In de tussentijd was mijn teamgenoot bezig met het instellen van de back-end applicatie, zodra dit was gedaan, heb ik de front-end en back-end verbindingen ingesteld met socket.io. " +
+              "Nadat deze taak was voltooid, ben ik gaan onderzoeken naar de API van de Air-monitor. Zoals bleek, was het vrij eenvoudig, de data kan worden ontvangen met een simpele axios-aanvraag. Ik heb de verbindingen in de back-end applicatie ingesteld om de waarden voor de CO2-, vochtigheids- en temperatuursensoren te verkrijgen. " +
+              "Zodra deze waarde is ontvangen, wordt deze naar alle front-end applicaties gestuurd met een interval van 10 seconden. " +
+              "Nu zat ik in de laatste fase. Op dit moment ontvangt de front-end data van de database van de back-end applicatie voor de naam, IP, locaties, sensoren en type van de monitor. (het type is niet erg belangrijk. Het is simpelweg het verschil tussen de buiten- of binnenversie van de monitor.) " +
+              "Het laatste wat ik nu moest doen was een laatste controle uitvoeren van mijn werk. Ik heb alle functionaliteiten getest en geprobeerd de server te overbelasten om te zien of er een knelpunt in het systeem zit. " +
+              "Het bleek dat de server op een plekje een probleem had. " +
+              "Dit had te maken met de front-end die veel te veel individuele verzoeken naar de server stuurde, waardoor deze aanzienlijk vertraagde. " +
+              "Nadat allerlei kleine verzoeken in een paar grote verzoeken waren gecombineerd, was het probleem opgelost. " +
+              "Ik heb deze methode gebruikt omdat grote verzoeken minder belastend voor de server zijn dan veel kleine verzoeken.",
+          paragraph3Image: '/images/fresh-air-pic2.png',
+          paragraph4Title: "Tot slot, wat heb ik geleerd?",
+          paragraph4:
+              "Ik heb waardevolle ervaring opgedaan met ExpressJs en VueJs. Het was ook geweldig om mijn geheugen op te frissen met het databasewerk. " +
+              "Natuurlijk is er altijd het front-end design werk waar ik erg van geniet en leer ik steeds meer interessante trucs voor mijn ontwerpen. " +
+              "Ik ben erg tevreden met de resultaten van dit project.",
+          paragraph4Image: '/images/fresh-air-pic3.png',
+        }
       ],
 
     };

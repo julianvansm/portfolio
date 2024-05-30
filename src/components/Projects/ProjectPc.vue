@@ -1,6 +1,6 @@
 <template>
-  <img class="fixed top-0 left-0 bg-cover w-full -z-10"  :src="$route.query.image"
-       alt="Project background image" />
+  <img class="fixed top-0 left-0 bg-cover w-full -z-10" :src="$route.query.image"
+       alt="Project background image"/>
   <div
       style="background: rgba(0,52,61,0.82)"
       class="w-full overflow-x-hidden h-screen pt-10 text-white z-50"
@@ -38,10 +38,12 @@
       <div class="sm:p-2" style="max-width: 1002px;">
         <div class="duration-200 py-4 text-2xl ">
           <h2 :class="{ 'loadIn1': loadIn, }" class="mb-6">
-            <img v-if="!$route.query.paragraph2" class="ml-1 w-1/2 float-right" height="400" width="400" :src="$route.query.image"
-                 alt="Project background image" />
+            <img v-if="!$route.query.paragraph2" class="ml-1 w-1/2 float-right" height="400" width="400"
+                 :src="$route.query.image"
+                 alt="Project background image"/>
             {{ $route.query.paragraph1 }}
-            <a class="text-blue-600 hover:text-blue-500 hover:underline " v-if="$route.query.link && !$route.query.extraLink" target="_blank"
+            <a class="text-blue-600 hover:text-blue-500 hover:underline "
+               v-if="$route.query.link && !$route.query.extraLink" target="_blank"
                :href="$route.query.link"> {{ $route.query.title }}</a>
             <a class="text-blue-600 hover:text-blue-500 hover:underline " v-if="$route.query.extraLink" target="_blank"
                :href="$route.query.extraLink"> {{ $route.query.extraLinkName }}</a>
@@ -53,19 +55,53 @@
           <div :class="{ 'loadIn2': loadIn, }" class="flex flex-row flex-nowrap">
 
             <div>
-              <h3 class="font-bold py-1" v-if="$route.query.paragraph2Title">
-                {{ $route.query.paragraph2Title }}:
+              <div>
+                <h3 class="font-bold py-1" v-if="$route.query.paragraph2Title">
+                  {{ $route.query.paragraph2Title }}:
 
-              </h3>
-                <img v-if="$route.query.paragraph2" class="ml-1 w-1/2 float-right" height="400" width="400" :src="$route.query.image"
-                     alt="Project background image" />
+                </h3>
+                <img v-if="$route.query.paragraph2" class="ml-1 w-1/2 float-right" height="400" width="400"
+                     :src="$route.query.image"
+                     alt="Project background image"/>
 
                 <h3 class="">
 
                   {{ $route.query.paragraph2 }}
 
                 </h3>
+              </div>
+              <div class="mt-20">
+                <h3 class="font-bold py-1" v-if="$route.query.paragraph3Title">
+                  {{ $route.query.paragraph3Title }}:
 
+                </h3>
+                <img v-if="$route.query.paragraph3 && $route.query.paragraph3Image" class="ml-1 w-1/2 float-right" height="400" width="400"
+                     :src="$route.query.paragraph3Image"
+                     alt="Project background image"/>
+
+                <h3 class="">
+
+                  {{ $route.query.paragraph3 }}
+
+                </h3>
+
+              </div>
+              <div class="mt-20">
+                <h3 class="font-bold py-1" v-if="$route.query.paragraph4Title">
+                  {{ $route.query.paragraph4Title }}
+
+                </h3>
+                <img v-if="$route.query.paragraph4 && $route.query.paragraph4Image" class="ml-1 w-1/2 float-right" height="400" width="400"
+                     :src="$route.query.paragraph4Image"
+                     alt="Project background image"/>
+
+                <h3 class="">
+
+                  {{ $route.query.paragraph4 }}
+
+                </h3>
+
+              </div>
             </div>
 
           </div>
@@ -92,7 +128,7 @@ export default {
     }
   },
   mounted() {
-    window.scrollTo(0,0);
+    window.scrollTo(0, 0);
 
   },
   setup() {
