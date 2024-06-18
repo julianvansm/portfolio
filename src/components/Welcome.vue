@@ -267,6 +267,61 @@ export default defineComponent({
               "I am very pleased with the results of this project.",
           paragraph4Image: '/images/fresh-air-pic3.png',
         },
+        {
+          title: 'Microcontrollers exam',
+          date: 'June 2024',
+          description: "For my 3rd year exam, I was tasked with creating and programming a P1 meter. The data that was received from the P1 simulator had to be sent to my API to be reformatted and saved to a database.",
+          image: '/images/microcontrollers1.jpg',
+          alternateImage: '/images/microcontrollers2.png',
+          info: true,
+          paragraph1:
+              "This project serves as an exam for my third year of software development. The assignment was to make a P1 Meter with an ESP32-Wifi to receive data from a P1 simulator. " +
+              "This data would then be sent to my API which was made with Expressjs, the same way as with previous projects. " +
+              "Once the api recieved the data, the Backend server processes the data which would come in a big block of text inside a string. " +
+              "As soon as the data was processed it would be stored in a database with it's value and corresponding type.",
+          paragraph2Title: "Preparation",
+          paragraph2:
+              "For my preperation the school gave me 6 other practice projects to learn the C++ language, Arduino IDE software and many different types of hardware like: Arduino Uno, ESP8266, LCD-screens, etc. " +
+              "Another very important thing I had to practice and focus on was the documentation. " +
+              "One of which was learning how to make a schematic in KiCad of the hardware configuration. " +
+              "Once these practice projects were approved by a teacher I could officially start the exam. ",
+          paragraph3Title: "The Exam",
+          paragraph3:
+              "And now for the official exam. I started of with the documentation, once I filled in all the preparation steps for the documentation I gathered all the required hardware. " +
+              "I needed a USB A to micro USB calbe, 9 male to male jumper wires , 4 female to male jumper wires, an SN74AC04N Inverter, the D1 mini ESP8266, an LCD 1602 screen and it's LCD 1602 I2C adapter, a breadboard and an RJ11 cable. \n " +
+              "Following this I started to develop the backend api server. " +
+              "I had done this all before thus it was not a big challenge. " +
+              "After the server was setup and running, I created a POST route which calls to a simple temporary function that saves data to the database to test if everything works correctly. " +
+              "Now that the server was setup I built the hardware and started writing the code for the ESP-8266. " +
+              "The first step was to create the connection with the database which was done with the ESP8266WiFi package. " +
+              "This package allows the Microcontroller to connect to the Wi-Fi network. " +
+              "This is where I encountered my first obstacle, I could not figure out how to send a request to my server which was running on my pc. " +
+              "I figured out that the name of my server should not be http://localhost:3000 but http://10.0.3.85:3000." +
+              "After the connection was sucured I used the SoftwareSerial package to receive data from the P1 simulator. " +
+              "The data I got was a total mess, It was a simple string with a bunch of unorderd text from which I had to extract the correct data. " +
+              "At first I wanted to do the processing of this code on the ESP8266, but I quickly realized that this task should be done by the server and thus sent the data straight to the server.",
+          paragraph3Image: '/images/microcontrollers1.jpg',
+          paragraph4Title: "Processing",
+
+          paragraph4:
+              "The processing was by far the most difficult part of this project due to my lack of knowledge on how to extract specific data from a block of text at the time. " +
+              "The data string had the name of the software on the first line and a random pair of numbers at the end of the string with an exclamation mark. " +
+              "My first step was to replace the name by using data.replace, This removed the brand's name from the string. " +
+              "Unfortunately this method was not viable for the random numbers so I found a way to also remove this when processing the other data. " +
+              "Between every bit of information I needed to extract there was a /n/n. (the slash is officially the other way around but this can't be displayed)" +
+              "The array was never meant to have these double so I replaced all /n/n with a single /n. " +
+              "This allowed me to split the array on each /n creating a line, these lines were stored in an array. " +
+              "I looped through the lines array and for each line I checked if it was empty, if the line included an exclamation mark te remove the last line and which part of the data was the type and which was the value. " +
+              "The type and value were seperated by parentheses so for each line I looked for the '(' symbol and sliced the line dividing it into it's type and value, these values were then sent to the database." +
+              "However, there was one more thing that I needed to send back to the ESP8266 which was the value of the powerusage. " +
+              "I did this by checking if the type was the same as the type that corresponds to the powerdata, if so it would be stored and later sent back to the ESP8266 and displayed on the LCDScreen.",
+          paragraph5Title: "Finally, what have I learned?",
+
+          paragraph5:
+              "I have discoverd how much fun wroking with hardware and software together can be. " +
+              "Also, it was great to get a bit of memory refreshment with the ExpressJs server. " +
+              "and lastly I realized how important good preparation is.",
+        },
       ],
       projectsDutch: [
         {
@@ -397,6 +452,61 @@ export default defineComponent({
               "Natuurlijk is er altijd het front-end design werk waar ik erg van geniet en leer ik steeds meer interessante trucs voor mijn ontwerpen. " +
               "Ik ben erg tevreden met de resultaten van dit project.",
           paragraph4Image: '/images/fresh-air-pic3.png',
+        },
+        {
+          title: 'Microcontrollers examen',
+          date: 'Juni 2024',
+          description: "Voor mijn derdejaarsexamen moest ik een P1-meter bouwen en programmeren. De gegevens van de p1 simulator werder via mijn API gerformateert en opgeslagen in een database.",
+          image: '/images/microcontrollers1.jpg',
+          alternateImage: '/images/microcontrollers2.png',
+          info: true,
+          paragraph1:
+              "Dit project dient als examen voor mijn derde jaar software ontwikkeling. De opdracht was om een P1-meter te maken met een ESP32-Wifi om gegevens van een P1-simulator te ontvangen. " +
+              "Deze gegevens werden vervolgens naar mijn API gestuurd, die net als bij eerdere projecten met Expressjs is gemaakt. " +
+              "Zodra de API de gegevens ontving, verwerkte de backendserver de gegevens die in een grote blok tekst binnen een string zaten. " +
+              "Zodra de gegevens verwerkt waren, werden ze in een database opgeslagen met hun waarde en het corresponderende type.",
+          paragraph2Title: "Voorbereiding",
+          paragraph2:
+              "Voor mijn voorbereiding gaf de school me 6 andere oefenprojecten om de C++-taal, de Arduino IDE-software en allerlei soorten hardware te leren kennen, zoals: Arduino Uno, ESP8266, LCD-schermen, etc. " +
+              "Een ander erg belangrijk punt waarop ik moest oefenen en me moest focussen, was de documentatie. " +
+              "Een daarvan was het leren maken van een schema in KiCad van de hardwareconfiguratie. " +
+              "Zodra deze oefenprojecten door een docent waren goedgekeurd, kon ik officieel aan het examen beginnen. ",
+          paragraph3Title: "Het examen",
+          paragraph3:
+              "En nu voor het officiële examen. Ik begon met de documentatie, nadat ik alle voorbereidingstappen voor de documentatie had ingevuld, verzamelde ik alle benodigde hardware. " +
+              "Ik had een USB A naar micro USB-kabel nodig, 9 mannelijke naar mannelijke jumperkabels, 4 vrouwelijke naar mannelijke jumperkabels, een SN74AC04N Inverter, de D1 mini ESP8266, een LCD 1602 scherm en zijn LCD 1602 I2C adapter, een breadboard en een RJ11 kabel. \n " +
+              "Daarna ben ik begonnen met het ontwikkelen van de backend-api-server. " +
+              "Dit had ik allemaal al eerder gedaan, dus het was geen grote uitdaging. " +
+              "Nadat de server was ingesteld en draaide, heb ik een POST-route gemaakt die naar een eenvoudige tijdelijke functie roept die gegevens in de database opslaat om te testen of alles correct werkt. " +
+              "Nu de server was ingesteld, heb ik de hardware gebouwd en ben ik begonnen met het schrijven van de code voor de ESP-8266. " +
+              "De eerste stap was om de verbinding met de database te maken, wat is gedaan met het ESP8266WiFi-pakket. " +
+              "Dit pakket stelt de microcontroller in staat om verbinding te maken met het Wi-Fi-netwerk. " +
+              "Hier kwam ik mijn eerste obstakel tegen: ik kon niet achterhalen hoe ik een verzoek moest sturen naar mijn server die op mijn pc draaide. " +
+              "Ik kwam erachter dat de naam van mijn server niet http://localhost:3000 maar http://10.0.3.85:3000 zou moeten zijn." +
+              "Nadat de verbinding tot stand was gebracht, gebruikte ik het SoftwareSerial-pakket om gegevens van de P1-simulator te ontvangen. " +
+              "De gegevens die ik kreeg waren een totale chaos. Het was een simpele string met een reeks ongeordende tekst waaruit ik de juiste gegevens moest extraheren. " +
+              "In eerste instantie wilde ik deze code op de ESP8266 verwerken, maar ik realiseerde me al snel dat deze taak door de server moest worden uitgevoerd en stuurde de gegevens daarom rechtstreeks naar de server.",
+          paragraph3Image: '/images/microcontrollers1.jpg',
+          paragraph4Title: "Verwerking",
+
+          paragraph4:
+              "De verwerking was verreweg het moeilijkste onderdeel van dit project vanwege mijn toenmalige gebrek aan kennis over het extraheren van specifieke gegevens uit een blok tekst. " +
+              "De datastring had de naam van de software op de eerste regel en een willekeurig paar cijfers aan het einde van de string met een uitroepteken. " +
+              "Mijn eerste stap was het vervangen van de naam met behulp van data.replace. Dit verwijderde de merknaam uit de string. " +
+              "Helaas was deze methode niet geschikt voor de willekeurige getallen, dus vond ik een manier om deze ook te verwijderen bij het verwerken van de andere gegevens. " +
+              "Tussen elke bit informatie die ik moest extraheren stond er een /n/n. (de schuine streep staat officieel andersom, maar dit kan niet worden weergegeven) " +
+              "De array was nooit bedoeld om deze dubbele waarden te hebben, dus verving ik alle /n/n door een enkele /n. " +
+              "Hierdoor kon ik de array op elke /n splitsen, waardoor er regels ontstonden. Deze regels werden in een array opgeslagen. " +
+              "Ik loopte door de array met regels en controleerde voor elke regel of deze leeg was, of de regel een uitroepteken bevatte om de laatste regel te verwijderen, en welk deel van de gegevens het type was en welk de waarde. " +
+              "Het type en de waarde werden gescheiden door haakjes, dus voor elke regel zocht ik naar het symbool '(' en splitte ik de regel op om deze te verdelen in een type en waarde. Deze waarden werden vervolgens naar de database gestuurd." +
+              "Er was echter nog één ding dat ik terug moest sturen naar de ESP8266, namelijk de waarde van het energieverbruik. " +
+              "Dit deed ik door te controleren of het type hetzelfde was als het type dat overeenkomt met de energiegegevens. Zo ja, dan werd dit opgeslagen en later teruggestuurd naar de ESP8266 en weergegeven op het LCD-scherm.",
+          paragraph5Title: "Tot slot, wat heb ik geleerd?",
+
+          paragraph5:
+              "Ik ben erachter gekomen hoe leuk het kan zijn om met hardware en software samen te werken. " +
+              "Ook was het fijn om mijn geheugen even op te frissen met de ExpressJs-server. " +
+              "En tot slot realiseerde ik me hoe belangrijk een goede voorbereiding is.",
         }
       ],
 

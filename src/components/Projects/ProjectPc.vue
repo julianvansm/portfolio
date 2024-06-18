@@ -60,11 +60,13 @@
                   {{ $route.query.paragraph2Title }}:
 
                 </h3>
-                <img v-if="$route.query.paragraph2" class="ml-1 w-1/2 float-right" height="400" width="400"
+                <img v-if="$route.query.paragraph2 && !$route.query.alternateImage" class="ml-1 w-1/2 float-right" height="400" width="400"
                      :src="$route.query.image"
                      alt="Project background image"/>
-
-                <h3 class="">
+                <img v-if="$route.query.paragraph2 && $route.query.alternateImage" class="ml-1 w-1/2 float-right" height="400" width="400"
+                     :src="$route.query.alternateImage"
+                     alt="Project background image"/>
+                <h3>
 
                   {{ $route.query.paragraph2 }}
 
@@ -79,7 +81,7 @@
                      :src="$route.query.paragraph3Image"
                      alt="Project background image"/>
 
-                <h3 class="">
+                <h3>
 
                   {{ $route.query.paragraph3 }}
 
@@ -87,7 +89,7 @@
 
               </div>
               <div class="mt-20">
-                <h3 class="font-bold py-1" v-if="$route.query.paragraph4Title">
+                <h3 class="font-bold py-1 " v-if="$route.query.paragraph4Title">
                   {{ $route.query.paragraph4Title }}
 
                 </h3>
@@ -95,9 +97,25 @@
                      :src="$route.query.paragraph4Image"
                      alt="Project background image"/>
 
-                <h3 class="">
+                <h3>
 
                   {{ $route.query.paragraph4 }}
+
+                </h3>
+
+              </div>
+              <div class="mt-20">
+                <h3 class="font-bold py-1 " v-if="$route.query.paragraph5Title">
+                  {{ $route.query.paragraph5Title }}
+
+                </h3>
+                <img v-if="$route.query.paragraph5 && $route.query.paragraph5Image" class="ml-1 w-1/2 float-right" height="400" width="400"
+                     :src="$route.query.paragraph5Image"
+                     alt="Project background image"/>
+
+                <h3>
+
+                  {{ $route.query.paragraph5 }}
 
                 </h3>
 
