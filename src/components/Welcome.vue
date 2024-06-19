@@ -332,7 +332,7 @@ export default defineComponent({
           link: '#Home',
           info: true,
           paragraph1:
-              "In mijn eerste jaar softwareontwikkeling kreeg ik de opdracht om mijn portfolio te maken in phpStorm met behulp van het Laravel-framework, css en html. Ik heb er zelfs wat JavaScript ingestrooid dat onthoudt waar de lezer is gebleven bij het herladen van de pagina. " +
+              "In mijn eerste jaar software development kreeg ik de opdracht om mijn portfolio te maken in phpStorm met behulp van het Laravel-framework, css en html. Ik heb er zelfs wat JavaScript ingestrooid dat onthoudt waar de lezer is gebleven bij het herladen van de pagina. " +
               " Destijds wist ik zo goed als niets van coderen, waardoor het resulteerde in een eenvoudige website. Deze website is hier te vinden: ",
           paragraph2Title: "Herontwerp",
           paragraph2:
@@ -461,28 +461,28 @@ export default defineComponent({
           alternateImage: '/images/microcontrollers2.png',
           info: true,
           paragraph1:
-              "Dit project dient als examen voor mijn derde jaar software ontwikkeling. De opdracht was om een P1-meter te maken met een ESP32-Wifi om gegevens van een P1-simulator te ontvangen. " +
+              "Dit project dient als examen voor mijn derde jaar software development. De opdracht was om een P1-meter te maken met een ESP32-Wifi om gegevens van een P1-simulator te ontvangen. " +
               "Deze gegevens werden vervolgens naar mijn API gestuurd, die net als bij eerdere projecten met Expressjs is gemaakt. " +
               "Zodra de API de gegevens ontving, verwerkte de backendserver de gegevens die in een grote blok tekst binnen een string zaten. " +
               "Zodra de gegevens verwerkt waren, werden ze in een database opgeslagen met hun waarde en het corresponderende type.",
           paragraph2Title: "Voorbereiding",
           paragraph2:
-              "Voor mijn voorbereiding gaf de school me 6 andere oefenprojecten om de C++-taal, de Arduino IDE-software en allerlei soorten hardware te leren kennen, zoals: Arduino Uno, ESP8266, LCD-schermen, etc. " +
-              "Een ander erg belangrijk punt waarop ik moest oefenen en me moest focussen, was de documentatie. " +
+              "Voor mijn voorbereiding gaf school mij 6 oefenprojecten om de C++- taal, de Arduino IDE-software en allerlei soorten hardware te leren kennen, zoals: Arduino Uno, ESP8266, LCD-schermen, etc. " +
+              "Een ander erg belangrijk aandachtspunt was de documentatie. " +
               "Een daarvan was het leren maken van een schema in KiCad van de hardwareconfiguratie. " +
               "Zodra deze oefenprojecten door een docent waren goedgekeurd, kon ik officieel aan het examen beginnen. ",
           paragraph3Title: "Het examen",
           paragraph3:
               "En nu voor het officiële examen. Ik begon met de documentatie, nadat ik alle voorbereidingstappen voor de documentatie had ingevuld, verzamelde ik alle benodigde hardware. " +
-              "Ik had een USB A naar micro USB-kabel nodig, 9 mannelijke naar mannelijke jumperkabels, 4 vrouwelijke naar mannelijke jumperkabels, een SN74AC04N Inverter, de D1 mini ESP8266, een LCD 1602 scherm en zijn LCD 1602 I2C adapter, een breadboard en een RJ11 kabel. \n " +
+              "Ik had een USB A naar micro USB-kabel nodig, 9 male to male jumperkabels, 4 female to male jumperkabels, een SN74AC04N Inverter, de D1 mini ESP8266, een LCD 1602 scherm en zijn LCD 1602 I2C adapter, een breadboard en een RJ11 kabel. \n " +
               "Daarna ben ik begonnen met het ontwikkelen van de backend-api-server. " +
               "Dit had ik allemaal al eerder gedaan, dus het was geen grote uitdaging. " +
-              "Nadat de server was ingesteld en draaide, heb ik een POST-route gemaakt die naar een eenvoudige tijdelijke functie roept die gegevens in de database opslaat om te testen of alles correct werkt. " +
+              "Zodra de server aan stond, heb ik een POST-route gemaakt die naar een eenvoudige tijdelijke functie roept die gegevens in de database opslaat om te testen of alles correct werkt. " +
               "Nu de server was ingesteld, heb ik de hardware gebouwd en ben ik begonnen met het schrijven van de code voor de ESP-8266. " +
-              "De eerste stap was om de verbinding met de database te maken, wat is gedaan met het ESP8266WiFi-pakket. " +
+              "De eerste stap was om de verbinding met de database te maken, dit deet ik met de ESP8266WiFi-package. " +
               "Dit pakket stelt de microcontroller in staat om verbinding te maken met het Wi-Fi-netwerk. " +
-              "Hier kwam ik mijn eerste obstakel tegen: ik kon niet achterhalen hoe ik een verzoek moest sturen naar mijn server die op mijn pc draaide. " +
-              "Ik kwam erachter dat de naam van mijn server niet http://localhost:3000 maar http://10.0.3.85:3000 zou moeten zijn." +
+              "Hier kwam ik mijn eerste obstakel tegen: ik kon niet achterhalen hoe ik een verzoek kon sturen naar mijn server die op mijn pc draaide. " +
+              "Ik kwam erachter dat de naam van mijn server niet http://localhost:3000 maar http://10.0.3.85:3000 zou moeten zijn. " +
               "Nadat de verbinding tot stand was gebracht, gebruikte ik het SoftwareSerial-pakket om gegevens van de P1-simulator te ontvangen. " +
               "De gegevens die ik kreeg waren een totale chaos. Het was een simpele string met een reeks ongeordende tekst waaruit ik de juiste gegevens moest extraheren. " +
               "In eerste instantie wilde ik deze code op de ESP8266 verwerken, maar ik realiseerde me al snel dat deze taak door de server moest worden uitgevoerd en stuurde de gegevens daarom rechtstreeks naar de server.",
