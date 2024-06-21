@@ -3,238 +3,252 @@
 @tailwind utilities;
 
 html, body {
-  height: 100%;
-  margin: 0;
-  scroll-behavior: smooth;
-
+    height: 100%;
+    margin: 0;
 }
+
+
 
 body {
-  margin: 0;
-  background-color: #00343d;
-  /*background-image: linear-gradient(to right, #c97bf3, #b21fff);*/
-  font-family: 'Paytone One', sans-serif;
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch; /* Improve touch scrolling */
+    margin: 0;
+    background-color: #00343d;
+    font-family: 'Paytone One', sans-serif;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch; /* Improve touch scrolling */
 }
+
 body::-webkit-scrollbar {
-  width: 10px;
-  background-color: #00343d;
+    width: 10px;
+    background-color: #00343d;
 }
 
 
 body::-webkit-scrollbar-thumb {
-  border-radius: 10rem;
-  border: 1px solid #fff;
-  /* -webkit-box-shadow: inset -5px 0px 29px 0 #ec4896; */
-  background-color:#0bd8a2;
+    border-radius: 10rem;
+    border: 1px solid #fff;
+    /* -webkit-box-shadow: inset -5px 0px 29px 0 #ec4896; */
+    background-color: #0bd8a2;
 }
 
 
 .project-container-extra {
-  background-color: #989898;
-  width: 550px;
-  max-width: 550px;
-  min-height: 575px;
-  max-height: 575px;
-  box-shadow: 0px 0px 11px 1px rgba(114, 114, 114, 0.29);
+    background-color: #989898;
+    width: 550px;
+    max-width: 550px;
+    min-height: 575px;
+    max-height: 575px;
+    box-shadow: 0px 0px 11px 1px rgba(114, 114, 114, 0.29);
 }
 
 @media screen and (max-width: 1000px) {
-  .about-container{
-    margin-left: 0;
-    margin-right: 0;
-    padding-left: 11px;
-    padding-right: 0px;
-  }
-  .about-text-container{
-    margin-right: 0;
-  }
-  .about-hey{
-    font-size: 23px;
-  }
-  .about-me{
-    font-size: 20px;
-  }
+    .about-container {
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 11px;
+        padding-right: 0px;
+    }
+
+    .about-text-container {
+        margin-right: 0;
+    }
+
+    .about-hey {
+        font-size: 23px;
+    }
+
+    .about-me {
+        font-size: 20px;
+    }
 }
 
 @media screen and (max-width: 760px) {
 
-  .greenbox {
-    flex-direction: column;
-  }
-  .textbox{
-    margin-left: 11px;
-    margin-right: 12px;
-  }
-  .home-text-title {
-    font-size: 23px;
-    -webkit-text-stroke: 1px #000000;
-  }
-  .about-title {
-    font-size: 2rem;
-  }
-  .about-container{
-    margin-left: 0;
-    margin-right: 0;
-    padding-left: 11px;
-    padding-right: 0px;
-  }
-  .about-text-container{
-    margin-right: 0;
-  }
-  .greenbox .images {
-    display: flex;
-    justify-content: space-around;
-    border-top: 3px solid #8d0404;
-  }
-  .about-hey{
-    font-size: 23px;
-  }
-  .about-me{
-    font-size: 20px;
-  }
+    .greenbox {
+        flex-direction: column;
+    }
+
+    .textbox {
+        margin-left: 11px;
+        margin-right: 12px;
+    }
+
+    .home-text-title {
+        font-size: 23px;
+        -webkit-text-stroke: 1px #000000;
+    }
+
+    .about-title {
+        font-size: 2rem;
+    }
+
+    .about-container {
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 11px;
+        padding-right: 0px;
+    }
+
+    .about-text-container {
+        margin-right: 0;
+    }
+
+    .greenbox .images {
+        display: flex;
+        justify-content: space-around;
+        border-top: 3px solid #8d0404;
+    }
+
+    .about-hey {
+        font-size: 23px;
+    }
+
+    .about-me {
+        font-size: 20px;
+    }
 
 }
+
 .wobble-line-border {
-  /* Add black border on top and bottom */
-  border-top: 4px solid black;
-  border-bottom: 4px solid black;
+    /* Add black border on top and bottom */
+    border-top: 4px solid black;
+    border-bottom: 4px solid black;
 
-  /* Set the animation properties */
-  animation: wobble 3s infinite linear;
+    /* Set the animation properties */
+    animation: wobble 3s infinite linear;
 }
+
 @keyframes wobble {
-  0% {
-    transform: translateX(0);
-  }
-  25% {
-    transform: translateX(-5px);
-  }
-  50% {
-    transform: translateX(0);
-  }
-  75% {
-    transform: translateX(5px);
-  }
-  100% {
-    transform: translateX(0);
-  }
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-5px);
+    }
+    50% {
+        transform: translateX(0);
+    }
+    75% {
+        transform: translateX(5px);
+    }
+    100% {
+        transform: translateX(0);
+    }
 }
-.box {
-  --size: 5px;
-  --p: 3px;
-  --R: 5.5px;
 
-  height: 20px;
+.box {
+    --size: 5px;
+    --p: 3px;
+    --R: 5.5px;
+
+    height: 20px;
 
 }
 
 .box + .box {
-  background-repeat: repeat-x;
+    background-repeat: repeat-x;
 
 }
 
 .box.mask {
-  -webkit-mask: radial-gradient(var(--R) at 50% calc(var(--size) + var(--p)), blue 99%, rgba(255, 0, 0, 0) 101%) calc(50% - 2 * var(--size)) 0/calc(4 * var(--size)) 100%,
-  radial-gradient(var(--R) at 50% calc(-1 * var(--p)), #0000 99%, red 101%) 50% var(--size)/calc(4 * var(--size)) 100% repeat-x;
+    -webkit-mask: radial-gradient(var(--R) at 50% calc(var(--size) + var(--p)), blue 99%, rgba(255, 0, 0, 0) 101%) calc(50% - 2 * var(--size)) 0/calc(4 * var(--size)) 100%,
+    radial-gradient(var(--R) at 50% calc(-1 * var(--p)), #0000 99%, red 101%) 50% var(--size)/calc(4 * var(--size)) 100% repeat-x;
 
 }
 
 .box.last {
-  transform: rotate(180deg);
-  filter: drop-shadow(2px 2px 2px #0bd8a2);
+    transform: rotate(180deg);
+    filter: drop-shadow(2px 2px 2px #0bd8a2);
 
 }
 
 .btn {
-  position: absolute;
-  top: -12px;
-  left: 50%;
-  transform: translateX(-50%);
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .btn--top_text {
-  display: block;
-  position: absolute;
-  top: -10px;
-  left: 50%;
-  font-size: 12px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: white;
-  transform: translateX(-50%) translateY(-30%);
+    display: block;
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: white;
+    transform: translateX(-50%) translateY(-30%);
 }
 
 .btn--top_text .btn__arrow {
-  display: block;
-  position: absolute;
-  left: 50%;
-  height: 10px;
-  width: 10px;
-  border-left: 2px solid white;
-  border-top: 2px solid white;
-  transform: translateX(-50%) rotate(45deg);
+    display: block;
+    position: absolute;
+    left: 50%;
+    height: 10px;
+    width: 10px;
+    border-left: 2px solid white;
+    border-top: 2px solid white;
+    transform: translateX(-50%) rotate(45deg);
 }
 
 .btn--top_text:hover {
-  filter: drop-shadow(2px 2px 2px);
+    filter: drop-shadow(2px 2px 2px);
 }
 
 .btn--top_text .btn__arrow--top {
-  top: 0px;
+    top: 0px;
 }
 
 .btn--top_text .btn__arrow--bottom {
-  top: 6px;
+    top: 6px;
 }
 
 .container {
-  position: relative;
-  width: 100%; /* Adjust width as needed */
-  height: fit-content; /* Adjust height as needed */
-  display: flex;
-  justify-content: center;
+    position: relative;
+    width: 100%; /* Adjust width as needed */
+    height: fit-content; /* Adjust height as needed */
+    display: flex;
+    justify-content: center;
 }
 
 
 .line {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); /* Center the line intersection */
-  width: 30%; /* Initial width is 0, expanded later */
-//background-color: #000000;
-  border: 2px solid #0bd8a2;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the line intersection */
+    width: 30%; /* Initial width is 0, expanded later */
+    background-color: #000000;
+    border: 2px solid #0bd8a2;
 }
 
 .line:after, .line:before {
-  content: "";
-  position: absolute;
-  width: 3px; /* Initial width is 0, expanded later */
-  height: 10px; /* Triangle height */
-  border-left: 5px solid transparent; /* Left border for triangle */
-  border-right: 5px solid transparent; /* Right border for triangle */
+    content: "";
+    position: absolute;
+    width: 3px; /* Initial width is 0, expanded later */
+    height: 10px; /* Triangle height */
+    border-left: 5px solid transparent; /* Left border for triangle */
+    border-right: 5px solid transparent; /* Right border for triangle */
 }
 
 .line-1:after {
-  left: 4px; /* Position triangle above the line */
-  border-bottom: 5px solid #0bd8a2; /* Bottom border for triangle */
-  transform: translate(-54%, -50%) rotate(90deg); /* Rotate line 2 */
+    left: 4px; /* Position triangle above the line */
+    border-bottom: 5px solid #0bd8a2; /* Bottom border for triangle */
+    transform: translate(-54%, -50%) rotate(90deg); /* Rotate line 2 */
 
 }
 
 .line-2:before {
-  left: 4px; /* Position triangle above the line */
-  border-bottom: 5px solid #0bd8a2; /* Bottom border for triangle */
-  transform: translate(-60%, -50%) rotate(90deg); /* Rotate line 2 */
+    left: 4px; /* Position triangle above the line */
+    border-bottom: 5px solid #0bd8a2; /* Bottom border for triangle */
+    transform: translate(-60%, -50%) rotate(90deg); /* Rotate line 2 */
 }
 
 .line-1 {
-  transform: translate(50%, -46%) rotate(180deg); /* Rotate line 1 */
+    transform: translate(50%, -46%) rotate(180deg); /* Rotate line 1 */
 }
 
 .line-2 {
-  transform: translate(-150%, -50%) rotate(0deg); /* Rotate line 2 */
+    transform: translate(-150%, -50%) rotate(0deg); /* Rotate line 2 */
 }

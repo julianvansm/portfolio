@@ -26,7 +26,7 @@
          class="duration-300 sticky h-screen flex items-center justify-center z-0">
       <div class="w-full h-full relative">
         <div :class="{'opacity-0': top === false}" class=" absolute duration-1000 bottom-32  left-1/2 ">
-          <a href="#about" style="transform: rotate(180deg)" class=" btn--page_top z-50">
+          <a @click="scrollAbout()" style="transform: rotate(180deg)" class="hover:cursor-pointer btn--page_top z-50">
             <span :class="{animation: top === true}" class="btn__arrow btn__arrow--top"
                   style="opacity: 1; transform: matrix(0.7071, 0.7071, -0.7071, 0.7071, -5, 0);"></span>
             <span :class="{animation: top === true}" class="btn__arrow btn__arrow--bottom"
@@ -550,6 +550,12 @@ export default defineComponent({
   },
 
   methods: {
+
+    async scrollAbout() {
+      const aboutElement = document.getElementById("about");
+
+        aboutElement.scrollIntoView({ behavior: "smooth" });
+    },
 
     async getContactRect() {
       const contact = await this.$refs.contact;

@@ -42,7 +42,7 @@
                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 160.7 61.5"
                enable-background="new 0 0 160.7 61.5" xml:space="preserve"><path fill="#252525FF" d="M80.3,61.5c0,0,22.1-2.7,43.1-5.4s41-5.4,36.6-5.4c-21.7,0-34.1-12.7-44.9-25.4S95.3,0,80.3,0c-15,0-24.1,12.7-34.9,25.4S22.3,50.8,0.6,50.8c-4.3,0-6.5,0,3.5,1.3S36.2,56.1,80.3,61.5z"></path></svg>
           <div :class="{'opacity-0' :bottom === false, 'bottom2' :bottom === true, 'not-bottom2' :bottom === false}" class="btn duration-700">
-            <a href="#" class="btn--top_text">
+            <a @click="scrollTop()" class="hover:cursor-pointer btn--top_text">
             <span class="btn__arrow btn__arrow--top"
                   style="opacity: 1; transform: matrix(0.7071, 0.7071, -0.7071, 0.7071, -5, 0);"></span>
               <span class="btn__arrow btn__arrow--bottom"
@@ -74,6 +74,11 @@ export default {
   },
 
   methods: {
+    async scrollTop() {
+      const aboutElement = document.getElementById("Home");
+
+      aboutElement.scrollIntoView({ behavior: "smooth" });
+    },
     handleScroll() {
       const scrollHeight = document.documentElement.scrollHeight;
       const clientHeight = window.innerHeight;
