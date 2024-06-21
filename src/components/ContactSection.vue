@@ -36,13 +36,12 @@
     </div>
     <div class="relative">
       <div style="background: rgb(37, 37, 37)" class="flex min-h-40 justify-center">
-
         <div class="relative z-10 text-gray-400 p-4 sm:p-2" style="max-width: 1002px;">
           <svg :class="{bottom :bottom === true, 'not-bottom' :bottom === false}" class="blurp duration-500" width="192"
                height="61" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 160.7 61.5"
                enable-background="new 0 0 160.7 61.5" xml:space="preserve"><path fill="#252525FF" d="M80.3,61.5c0,0,22.1-2.7,43.1-5.4s41-5.4,36.6-5.4c-21.7,0-34.1-12.7-44.9-25.4S95.3,0,80.3,0c-15,0-24.1,12.7-34.9,25.4S22.3,50.8,0.6,50.8c-4.3,0-6.5,0,3.5,1.3S36.2,56.1,80.3,61.5z"></path></svg>
-          <div :class="{'opacity-0' :bottom === false}" class="btn  duration-1000">
+          <div :class="{'opacity-0' :bottom === false, 'bottom2' :bottom === true, 'not-bottom2' :bottom === false}" class="btn duration-700">
             <a href="#" class="btn--top_text">
             <span class="btn__arrow btn__arrow--top"
                   style="opacity: 1; transform: matrix(0.7071, 0.7071, -0.7071, 0.7071, -5, 0);"></span>
@@ -117,6 +116,16 @@ export default {
 
 .not-bottom {
   transform: translate3d(0px, 40px, 0px) scale(0.5, 0.5);
+
+}
+.bottom2 {
+  transform: translate3d(0px, 0px, 0px);
+
+}
+
+
+.not-bottom2 {
+  transform: translate3d(0px, 20px, 0px) scale(0.1, 0.1);
 
 }
 

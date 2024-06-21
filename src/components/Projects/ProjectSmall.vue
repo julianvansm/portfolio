@@ -18,7 +18,7 @@
       <div class="w-full flex justify-center">
         <div>
           <h2
-              class="duration-200 w-full text-6xl max-sm:text-5xl text-white text-center mb-4"
+              class="duration-200 w-full text-4xl text-white text-center mb-4"
               style="-webkit-text-stroke: 1px #000000; text-shadow: 2px 2px 2px black;">
 
             {{ $route.query.title }}
@@ -99,6 +99,23 @@
             <img v-if="$route.query.paragraph4 && $route.query.paragraph4Image" class="mt-2"
                  height="400" width="400"
                  :src="$route.query.paragraph4Image"
+                 alt="Project background image"/>
+          </div>
+          <div class="mt-20">
+            <h3 class="font-bold py-1" v-if="$route.query.paragraph5Title">
+              {{ $route.query.paragraph5Title }}
+
+            </h3>
+
+
+            <h3 class="">
+
+              {{ $route.query.paragraph5 }}
+
+            </h3>
+            <img v-if="$route.query.paragraph4 && $route.query.paragraph5Image" class="mt-2"
+                 height="400" width="400"
+                 :src="$route.query.paragraph5Image"
                  alt="Project background image"/>
           </div>
         </div>
