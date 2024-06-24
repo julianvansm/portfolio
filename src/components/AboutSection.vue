@@ -48,16 +48,15 @@
     <hgroup>
       <h2 class="mb-6">
         Ik ben Julian van Smirren, een tweedejaars student softwareontwikkeling bij Landstede (geboren april 2006).
-        Mijn passie voor het maken van dingen in de digitale wereld is zeer sterk.
-        Mijn interesse in webontwikkeling, met name in technologieën zoals PHP en JavaScript, groeit snel.
+        Mijn passie en interesse in webontwikkeling, met name in technologieën zoals PHP en JavaScript, groeit snel.
       </h2>
 
       <h3>
-        Deze passie voor creatie gaat verder dan programmeren,
-        getuige mijn toewijding aan het componeren van pianostukken.
+        Deze passie voor creatie gaat verder dan programmeren.
+        Ook wijd ik veel tijd aan het componeren van pianostukken.
         Naast mijn studie werk ik bij een lokale supermarkt.
-        Deze baan heeft me een aantal geweldige praktische vaardigheden opgeleverd en me geleerd hoe ik goed kan
-        werken in een drukke omgeving.
+        Deze baan heeft mij een veel praktische vaardigheden opgeleverd en mij geleerd hoe ik kan presteren
+        in een drukke werk omgeving.
       </h3>
     </hgroup>
   </div>
