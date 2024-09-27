@@ -19,7 +19,7 @@
         <div>
           <h2
               class="duration-200 w-min text-nowrap text-6xl max-sm:text-5xl text-white text-center mb-4"
-              style="-webkit-text-stroke: 1px #000000; text-shadow: 2px 2px 2px black;">
+              style=" text-shadow: 2px 2px 2px black;">
 
             {{ $route.query.title }}
           </h2>

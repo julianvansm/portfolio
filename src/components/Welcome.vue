@@ -1,5 +1,5 @@
 <template>
-  <animation-tester class="-z-10 fixed"></animation-tester>
+  <animation-tester class="-z-10 overflow-hidden fixed"></animation-tester>
 
   <span class="z-50 fixed top-0 right-0 m-2  border-white border-2 rounded overflow-hidden">
         <a class="hover:cursor-pointer" @click="lan()">
@@ -72,11 +72,11 @@
             <div style="background: #00343d;" class=" w-full flex justify-center">
               <div class="w-min">
                 <h2 v-if="english === false" class="text-6xl max-sm:text-5xl text-white text-center pt-4"
-                    style="background: #00343d; -webkit-text-stroke: 1px #000000;">
+                    style="background: #00343d;">
                   Projecten
                 </h2>
                 <h2 v-if="english === true" class="text-6xl max-sm:text-5xl text-white text-center pt-4"
-                    style="background: #00343d; -webkit-text-stroke: 1px #000000;">
+                    style="background: #00343d;">
                   Projects
                 </h2>
                 <div class="container">
@@ -271,7 +271,7 @@ export default defineComponent({
           title: 'Microcontrollers exam',
           date: 'June 2024',
           description: "For my 3rd year exam, I was tasked with creating and programming a P1 meter. The data that was received from the P1 simulator had to be sent to my API to be reformatted and saved to a database.",
-          image: '/images/microcontrollers1.jpg',
+          image: '/images/microcontrollers1.png',
           alternateImage: '/images/microcontrollers2.png',
           info: true,
           paragraph1:
@@ -300,7 +300,7 @@ export default defineComponent({
               "After the connection was sucured I used the SoftwareSerial package to receive data from the P1 simulator. " +
               "The data I got was a total mess, It was a simple string with a bunch of unorderd text from which I had to extract the correct data. " +
               "At first I wanted to do the processing of this code on the ESP8266, but I quickly realized that this task should be done by the server and thus sent the data straight to the server.",
-          paragraph3Image: '/images/microcontrollers1.jpg',
+          paragraph3Image: '/images/microcontrollers1.png',
           paragraph4Title: "Processing",
 
           paragraph4:
@@ -457,7 +457,7 @@ export default defineComponent({
           title: 'Microcontrollers examen',
           date: 'Juni 2024',
           description: "Voor mijn derdejaarsexamen moest ik een P1-meter bouwen en programmeren. De gegevens van de p1 simulator werder via mijn API gerformateert en opgeslagen in een database.",
-          image: '/images/microcontrollers1.jpg',
+          image: '/images/microcontrollers1.png',
           alternateImage: '/images/microcontrollers2.png',
           info: true,
           paragraph1:
@@ -486,7 +486,7 @@ export default defineComponent({
               "Nadat de verbinding tot stand was gebracht, gebruikte ik het SoftwareSerial-pakket om gegevens van de P1-simulator te ontvangen. " +
               "De gegevens die ik kreeg waren een totale chaos. Het was een simpele string met een reeks ongeordende tekst waaruit ik de juiste gegevens moest extraheren. " +
               "In eerste instantie wilde ik deze code op de ESP8266 verwerken, maar ik realiseerde me al snel dat deze taak door de server moest worden uitgevoerd en stuurde de gegevens daarom rechtstreeks naar de server.",
-          paragraph3Image: '/images/microcontrollers1.jpg',
+          paragraph3Image: '/images/microcontrollers1.png',
           paragraph4Title: "Verwerking",
 
           paragraph4:
