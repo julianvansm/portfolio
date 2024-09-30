@@ -10,7 +10,7 @@
       <div class=" flex justify-between mb-3 p-2 border-gray-800 border-b-2">
 
         <div>
-          <h1 class="text-black text-3xl">{{ project.title }}</h1>
+          <h1 class="text-black max-sm:text-2xl text-3xl">{{ project.title }}</h1>
           <h2 class="text-xl text-gray-600">{{ project.date }}</h2>
         </div>
 
