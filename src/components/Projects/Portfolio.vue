@@ -23,8 +23,8 @@
           <h2 class="mb-6">
             I'm Julian van Smirren, a second-year software development student at Landstede (born April 2006).
             My passion for building things in the digital world is strong.
-            My interest in web development, particularly using technologies like PHP and JavaScript, is rapidly growing.
-
+            I have a strong and growing interest in web development, especially with technologies like ExpressJS, ReactJS, and JavaScript.
+            Additionally, I bring experience with a range of frameworks and languages, including Laravel, PHP, Symfony, Node.js, Java, C#, HTML, and CSS.
           </h2>
           <h3>
             This passion for creation extends beyond programming,

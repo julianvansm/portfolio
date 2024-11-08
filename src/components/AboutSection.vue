@@ -31,8 +31,8 @@
 
       <h2 class="mb-6">
         My name is Julian van Smirren, a second-year software development student at Landstede (born April 2006).
-        My passion for creation and interest in web development, particularly using technologies like PHP and
-        JavaScript, is rapidly growing.
+        I have a strong and growing interest in web development, especially with technologies like ExpressJS, ReactJS, and JavaScript.
+        Additionally, I bring experience with a range of frameworks and languages, including Laravel, PHP, Symfony, Node.js, Java, C#, HTML, and CSS.
 
       </h2>
       <h3>
@@ -47,8 +47,9 @@
   <div v-if="english === false">
     <hgroup>
       <h2 class="mb-6">
-        Ik ben Julian van Smirren, een tweedejaars student softwareontwikkeling bij Landstede (geboren april 2006).
-        Mijn passie en interesse in webontwikkeling, met name in technologieën zoals PHP en JavaScript, groeit snel.
+        Mijn naam is Julian van Smirren, een tweedejaars student softwareontwikkeling bij Landstede (geboren april 2006).
+        Ik heb een grote en snelgroeiende interesse in webontwikkeling, vooral met ExpressJS, ReactJS en JavaScript.
+        Daarnaast heb ik ervaring met verschillende frameworks en programmeertalen, waaronder Laravel, PHP, Symfony, Node.js, Java, C#, HTML en CSS.
       </h2>
 
       <h3>

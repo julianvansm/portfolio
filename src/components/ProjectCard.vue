@@ -1,6 +1,6 @@
 <template>
   <div  class="project-container-extra gradient shadow p-3 sm:m-8 my-8 rounded-xl flex flex-col items-stretch">
-    <a v-if="project.link" :href="project.link" target="_blank" class="bg-gray-700 relative rounded">
+    <a v-if="project.link" :href="project.link" :target="project.title === 'Portfolio' ? '_self' : '_blank'" class="bg-gray-700 relative rounded">
 
       <img class="flex justify-center items-center rounded hover:opacity-20" :src="project.image" :alt="project.title"/>
     </a>
@@ -49,10 +49,7 @@ export default {
   },
   methods: {
     readMore(){
-
       const screenWidth = window.innerWidth;
-
-
       if (screenWidth < 600) {
         this.router.push({
           path: `/project/${this.project.title}`,
