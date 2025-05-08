@@ -11,10 +11,38 @@ html, body {
 
 body {
     margin: 0;
-    background-color: #00343d;
+    background: radial-gradient(circle at 110% 50%, rgba(94, 46, 166, 0.62), #0d1e5c 30%, #6d0a79 50%, #19003c 70%, #1f0000) fixed;
+    background-size: cover;
+    height: 100vh;
     font-family: 'Paytone One', sans-serif;
     overflow-y: scroll;
-    -webkit-overflow-scrolling: touch; /* Improve touch scrolling */
+    -webkit-overflow-scrolling: touch;
+    position: relative;
+    z-index: -20;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(circle at 60% 60%, #00343d, #00343d, #00343d);
+    pointer-events: none;
+    z-index: -20;
+    animation: pulseOverlay 3s ease-in-out infinite;
+}
+body::after {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(circle at 60% 60%, #3d0009, #3d0012, #3d0010);
+    pointer-events: none;
+    z-index: -20;
+    animation: pulseOverlay 10s ease-in-out infinite;
+}
+
+@keyframes pulseOverlay {
+    0%, 100% { opacity: 0.1; }
+    50% { opacity: 0.3; }
 }
 
 body::-webkit-scrollbar {

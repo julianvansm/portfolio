@@ -1,4 +1,4 @@
-<template>
+<template style="">
   <animation-tester class="-z-10 overflow-hidden fixed"></animation-tester>
 
   <span class="z-50 fixed top-0 right-0 m-2  border-white border-2 rounded overflow-hidden">
@@ -6,26 +6,28 @@
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                stroke="white" class="w-8 h-8" style="filter: drop-shadow(2px 2px 2px black)">
             <path stroke-linecap="round" stroke-linejoin="round"
-                d="m10.5 21 5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 0 1 6-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 0 1-3.827-5.802"/>
+                  d="m10.5 21 5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 0 1 6-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 0 1-3.827-5.802"/>
           </svg>
 
         </a>
 
     </span>
-<div>
-  <p v-if="english === true" style="filter: drop-shadow(2px 2px 1px black)"  class="text-white lan-animation fixed -top-20 right-14 z-50">
-    English
-  </p>
-  <p v-if="english === false" style="filter: drop-shadow(2px 2px 1px black)" class="text-white lan-animation fixed -top-20 right-14 z-50">
-    Nederlands
-  </p>
-</div>
-  <div  id="app">
+  <div>
+    <p v-if="english === true" style="filter: drop-shadow(2px 2px 1px black)"
+       class="text-white lan-animation fixed -top-20 right-14 z-50">
+      English
+    </p>
+    <p v-if="english === false" style="filter: drop-shadow(2px 2px 1px black)"
+       class="text-white lan-animation fixed -top-20 right-14 z-50">
+      Nederlands
+    </p>
+  </div>
+  <div id="app">
     <div id="Home" class="top-0 w-0"></div>
     <div ref="intro"
          class="duration-300 sticky h-screen flex items-center justify-center z-0">
-      <div class="w-full h-full relative">
-        <div :class="{'opacity-0': top === false}" class=" absolute duration-1000 bottom-32  left-1/2 ">
+      <div class="w-full h-full relative 2xl:flex 2xl:justify-center">
+        <div :class="{'opacity-0': top === false}" class=" absolute duration-1000 bottom-32 left-1/2 ">
           <a @click="scrollAbout()" style="transform: rotate(180deg)" class="hover:cursor-pointer btn--page_top z-50">
             <span :class="{animation: top === true}" class="btn__arrow btn__arrow--top"
                   style="opacity: 1; transform: matrix(0.7071, 0.7071, -0.7071, 0.7071, -5, 0);"></span>
@@ -34,7 +36,7 @@
           </a>
         </div>
         <div :class="{ 'loadIn': loadIn, }"
-            class="absolute top-0 flex-col md:top-1/2 flex md:justify-between md:flex-row flex-nowrap w-full px-10">
+             class="absolute top-0 flex-col md:top-1/2 flex md:justify-between md:flex-row flex-nowrap w-full max-w-[1980px] px-10">
           <div class="w-full">
             <hgroup v-if="english === true" style=""
                     class=" max-md:pt-20 sm:text-3xl text-xl text-white">
@@ -90,25 +92,27 @@
             <div style="background: #00343d; " class="box mask last"></div>
           </div>
           <div class="project-card-wrapper min-h-screen z-20 ">
-            <ProjectCard v-if="english === true" v-for="project in projectsEnglish.slice().reverse()" :key="project.title"
+            <ProjectCard v-if="english === true" v-for="project in projectsEnglish.slice().reverse()"
+                         :key="project.title"
                          :project="project"/>
-            <ProjectCard v-if="english === false" v-for="project in projectsDutch.slice().reverse()" :key="project.title"
+            <ProjectCard v-if="english === false" v-for="project in projectsDutch.slice().reverse()"
+                         :key="project.title"
                          :project="project"/>
 
 
-          </div>
         </div>
       </div>
-
     </div>
 
-    <div ref="" class="">
-      <div class="contact-wrapper duration-500">
-        <ContactSection id="Contact"/>
-      </div>
-    </div>
-    <div ref="contact" class=""></div>
   </div>
+
+  <div ref="" class="">
+    <div class="contact-wrapper duration-500">
+      <ContactSection id="Contact"/>
+    </div>
+  </div>
+  <div ref="contact" class=""></div>
+</div>
 </template>
 
 <script>
@@ -554,7 +558,7 @@ export default defineComponent({
     async scrollAbout() {
       const aboutElement = document.getElementById("about");
 
-        aboutElement.scrollIntoView({ behavior: "smooth" });
+      aboutElement.scrollIntoView({behavior: "smooth"});
     },
 
     async getContactRect() {
@@ -606,18 +610,27 @@ export default defineComponent({
   animation-name: lani;
   animation-duration: 3s;
 }
+
 @keyframes lani {
-  0%  {top: -20%}
-  10% {top: 2%}
-  90% {top: 2%}
-  100% {top: -20%}
+  0% {
+    top: -20%
+  }
+  10% {
+    top: 2%
+  }
+  90% {
+    top: 2%
+  }
+  100% {
+    top: -20%
+  }
 }
+
 .sticky {
   position: sticky;
   top: 0;
   font-size: 20px;
 }
-
 
 
 .about-wrapper {
