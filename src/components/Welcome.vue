@@ -816,8 +816,8 @@ export default defineComponent({
 }
 
 .text-animaton span {
-  --c1: var(--background-color);
-  --c2: #173616;
+  --c1: #ec50ef;
+  --c2: var(--fourth-color);
 
   --_p: 93% 83.5% at;
   --_g1: radial-gradient(var(--_p) bottom, var(--c1) 79.5%, #0000 80%) no-repeat;
