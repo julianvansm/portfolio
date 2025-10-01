@@ -5,12 +5,10 @@
         <a class="hover:cursor-pointer" @click="lan()">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                stroke="white" class="w-8 h-8" style="filter: drop-shadow(2px 2px 2px black)">
-            <path stroke-linecap="round" stroke-linejoin="round"
+            <path stroke-linecap="round" stroke="white" stroke-width="1.5" stroke-linejoin="round"
                   d="m10.5 21 5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 0 1 6-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 0 1-3.827-5.802"/>
           </svg>
-
         </a>
-
     </span>
   <div>
     <p v-if="english === true" style="filter: drop-shadow(2px 2px 1px black)"
@@ -23,9 +21,9 @@
     </p>
   </div>
   <div id="app">
-    <div id="Home" class="top-0 w-0"></div>
-    <div ref="intro"
-         class="duration-300 sticky h-screen flex items-center justify-center z-0">
+    <div id="Home"  class="top-0 w-0"></div>
+    <div ref="intro" :style="{ transform: 'translateY(' +  -aboutPos*2 + '%)' }"
+         class="duration-100 sticky h-screen flex items-center justify-center z-0">
       <div class="w-full h-full relative 2xl:flex 2xl:justify-center">
         <div :class="{'opacity-0': top === false}" class=" absolute duration-1000 bottom-32 left-1/2 ">
           <a @click="scrollAbout()" style="transform: rotate(180deg)" class="hover:cursor-pointer btn--page_top z-50">
@@ -37,48 +35,67 @@
         </div>
         <div :class="{ 'loadIn': loadIn, }"
              class="absolute top-0 flex-col md:top-1/2 flex md:justify-between md:flex-row flex-nowrap w-full max-w-[1980px] px-10">
-          <div class="w-full">
-            <hgroup v-if="english === true" style=""
+          <div class="introduction w-full">
+            <hgroup v-if="english === true"
                     class=" max-md:pt-20 sm:text-3xl text-xl text-white">
               <h1 class="max-sm:text-3xl text-5xl">Hi,</h1>
-              <h2 class="text-animaton max-sm:text-3xl text-5xl">I'm <span>Julian</span>,</h2>
-              <h3 class="max-sm:text-2xl text-3xl">Software developer</h3>
+              <h2 class="text-animaton max-sm:text-4xl text-6xl">I'm <span style="text-shadow: none">Julian</span>,</h2>
+              <h3 class="max-sm:text-2xl text-3xl">Software Developer</h3>
             </hgroup>
             <hgroup v-if="english === false" style=""
                     class=" max-md:pt-20 sm:text-3xl text-xl text-white">
               <h1 class="max-sm:text-3xl text-5xl">Hoi,</h1>
-              <h2 class="text-animaton max-sm:text-3xl text-5xl">Ik ben <span>Julian</span>,</h2>
-              <h3 class="max-sm:text-2xl text-3xl">Software developer</h3>
+              <h2 class="text-animaton max-sm:text-4xl text-6xl">Ik ben <span style="text-shadow: none">Julian</span>,</h2>
+              <h3 class="max-sm:text-2xl text-3xl">Software Developer</h3>
             </hgroup>
           </div>
           <div style="" class="cat-responsive absolute right-0 top-1/2">
             <svg-man></svg-man>
-
           </div>
         </div>
       </div>
 
     </div>
-    <div class="about-wrapper sticky about top-0 min-h-full h-screen overflow-y-auto">
-      <div id="about" class="">
+    <div ref="about" class="about-wrapper sticky about top-0 min-h-[120vh] flex-col flex items-center justify-center h-screen overflow-y-auto">
+      <div class="relative top-0 mt-10">
+        <div>
+          <h2 v-if="english === false"
+              class="duration-200 w-min text-nowrap text-6xl max-sm:text-5xl text-white text-center mb-4"
+              style=" text-shadow: 2px 2px 2px black;">
+            Over mij
+          </h2>
+          <h2 v-if="english === true"
+              class="duration-200 w-min text-nowrap text-6xl max-sm:text-5xl text-white text-center mb-4"
+              style=" text-shadow: 2px 2px 2px black;">
+            About me
+          </h2>
+          <div class="container">
+            <div class="text-Purple">*</div>
+            <div class="line line-1"></div>
+            <div class="line line-2"></div>
+          </div>
+        </div>
+      </div>
+      <div id="about" class="overflow-hidden flex-grow flex items-center justify-evenly flex-col">
+
         <AboutSection :english="english" id="About"/>
       </div>
     </div>
 
 
     <div ref="project"
-         class="relative duration-1000 pt-20 ">
+         class="relative duration-1000 ">
       <div class="relative">
-        <div style=" border-top: 3px solid #0bd8a2; background: #00343d" class="project-list-wrapper">
-          <div class="sticky z-30">
-            <div style="background: #00343d;" class=" w-full flex justify-center">
+        <div style=" border-top: 3px solid var(--main-color); background: var(--background-color)" class="project-list-wrapper">
+          <div class="sticky z-30" >
+            <div style="background: var(--background-color);" class=" w-full flex justify-center">
               <div class="w-min">
                 <h2 v-if="english === false" class="text-6xl max-sm:text-5xl text-white text-center pt-4"
-                    style="background: #00343d;">
+                    style="background: var(--background-color);">
                   Projecten
                 </h2>
                 <h2 v-if="english === true" class="text-6xl max-sm:text-5xl text-white text-center pt-4"
-                    style="background: #00343d;">
+                    style="background: var(--background-color);">
                   Projects
                 </h2>
                 <div class="container">
@@ -89,7 +106,7 @@
               </div>
             </div>
 
-            <div style="background: #00343d; " class="box mask last"></div>
+            <div style="background: var(--background-color); " class="box mask last"></div>
           </div>
           <div class="project-card-wrapper min-h-screen z-20 ">
             <ProjectCard v-if="english === true" v-for="project in projectsEnglish.slice().reverse()"
@@ -100,19 +117,19 @@
                          :project="project"/>
 
 
+          </div>
         </div>
       </div>
+
     </div>
 
-  </div>
-
-  <div ref="" class="">
-    <div class="contact-wrapper duration-500">
-      <ContactSection id="Contact"/>
+    <div ref="" class="">
+      <div class="contact-wrapper duration-500">
+        <ContactSection id="Contact"/>
+      </div>
     </div>
+    <div ref="contact" class=""></div>
   </div>
-  <div ref="contact" class=""></div>
-</div>
 </template>
 
 <script>
@@ -136,6 +153,7 @@ export default defineComponent({
   data() {
     return {
       contactPos: 0,
+      aboutPos: 0,
       english: undefined,
       top: true,
       loadIn: true,
@@ -511,7 +529,58 @@ export default defineComponent({
               "Ik ben erachter gekomen hoe leuk het kan zijn om met hardware en software samen te werken. " +
               "Ook was het fijn om mijn geheugen even op te frissen met de ExpressJs-server. " +
               "En tot slot realiseerde ik me hoe belangrijk een goede voorbereiding is.",
-        }
+        },
+        // {
+        //   title: 'museum game',
+        //   date: 'februari t&m juli 2025',
+        //   description: "In mijn stage periode heb ik de opdracht gekregen om een interactief spel voor basisschoolkinderen te maken. Hier leren de kinderen over de wonderen en werking van een oude stoomhoutzagerij.",
+        //   image: '',
+        //   alternateImage: '',
+        //   info: true,
+        //   paragraph1:
+        //       '',
+        //
+        //   paragraph2Title: "Voorbereiding",
+        //   paragraph2:
+        //       "Ik heb samen met mijn stage begeleider en product manager samen een meeting gehouden om het design en werking van het spel te bespreken. Hier keken we naar de flowchart ( dit is een document waar de exacte loop van het spel/website is genoteerd. ) en het figma viduele design van de website." +
+        //       " ",
+        //   paragraph3Title: "Het examen",
+        //   paragraph3:
+        //       "En nu voor het officiële examen. Ik begon met de documentatie, nadat ik alle voorbereidingstappen voor de documentatie had ingevuld, verzamelde ik alle benodigde hardware. " +
+        //       "Ik had een USB A naar micro USB-kabel nodig, 9 male to male jumperkabels, 4 female to male jumperkabels, een SN74AC04N Inverter, de D1 mini ESP8266, een LCD 1602 scherm en zijn LCD 1602 I2C adapter, een breadboard en een RJ11 kabel. \n " +
+        //       "Daarna ben ik begonnen met het ontwikkelen van de backend-api-server. " +
+        //       "Dit had ik allemaal al eerder gedaan, dus het was geen grote uitdaging. " +
+        //       "Zodra de server aan stond, heb ik een POST-route gemaakt die naar een eenvoudige tijdelijke functie roept die gegevens in de database opslaat om te testen of alles correct werkt. " +
+        //       "Nu de server was ingesteld, heb ik de hardware gebouwd en ben ik begonnen met het schrijven van de code voor de ESP-8266. " +
+        //       "De eerste stap was om de verbinding met de database te maken, dit deet ik met de ESP8266WiFi-package. " +
+        //       "Dit pakket stelt de microcontroller in staat om verbinding te maken met het Wi-Fi-netwerk. " +
+        //       "Hier kwam ik mijn eerste obstakel tegen: ik kon niet achterhalen hoe ik een verzoek kon sturen naar mijn server die op mijn pc draaide. " +
+        //       "Ik kwam erachter dat de naam van mijn server niet http://localhost:3000 maar http://10.0.3.85:3000 zou moeten zijn. " +
+        //       "Nadat de verbinding tot stand was gebracht, gebruikte ik het SoftwareSerial-pakket om gegevens van de P1-simulator te ontvangen. " +
+        //       "De gegevens die ik kreeg waren een totale chaos. Het was een simpele string met een reeks ongeordende tekst waaruit ik de juiste gegevens moest extraheren. " +
+        //       "In eerste instantie wilde ik deze code op de ESP8266 verwerken, maar ik realiseerde me al snel dat deze taak door de server moest worden uitgevoerd en stuurde de gegevens daarom rechtstreeks naar de server.",
+        //   paragraph3Image: '/images/microcontrollers1.png',
+        //   paragraph4Title: "Verwerking",
+        //
+        //   paragraph4:
+        //       "De verwerking was verreweg het moeilijkste onderdeel van dit project vanwege mijn toenmalige gebrek aan kennis over het extraheren van specifieke gegevens uit een blok tekst. " +
+        //       "De datastring had de naam van de software op de eerste regel en een willekeurig paar cijfers aan het einde van de string met een uitroepteken. " +
+        //       "Mijn eerste stap was het vervangen van de naam met behulp van data.replace. Dit verwijderde de merknaam uit de string. " +
+        //       "Helaas was deze methode niet geschikt voor de willekeurige getallen, dus vond ik een manier om deze ook te verwijderen bij het verwerken van de andere gegevens. " +
+        //       "Tussen elke bit informatie die ik moest extraheren stond er een /n/n. (de schuine streep staat officieel andersom, maar dit kan niet worden weergegeven) " +
+        //       "De array was nooit bedoeld om deze dubbele waarden te hebben, dus verving ik alle /n/n door een enkele /n. " +
+        //       "Hierdoor kon ik de array op elke /n splitsen, waardoor er regels ontstonden. Deze regels werden in een array opgeslagen. " +
+        //       "Ik liep door de array met regels en controleerde voor elke regel of deze leeg was, of de regel een uitroepteken bevatte om de laatste regel te verwijderen, en welk deel van de gegevens het type was en welk de waarde. " +
+        //       "Het type en de waarde werden gescheiden door haakjes, dus voor elke regel zocht ik naar het symbool '(' en splitte ik de regel op om deze te verdelen in een type en waarde. Deze waarden werden vervolgens naar de database gestuurd." +
+        //       "Er was echter nog één ding dat ik terug moest sturen naar de ESP8266, namelijk de waarde van het energieverbruik. " +
+        //       "Dit deed ik door te controleren of het type hetzelfde was als het type dat overeenkomt met de energiegegevens. Zo ja, dan werd dit opgeslagen en later teruggestuurd naar de ESP8266 en weergegeven op het LCD-scherm.",
+        //   paragraph5Title: "Tot slot, wat heb ik geleerd?",
+        //
+        //   paragraph5:
+        //       "Ik ben erachter gekomen hoe leuk het kan zijn om met hardware en software samen te werken. " +
+        //       "Ook was het fijn om mijn geheugen even op te frissen met de ExpressJs-server. " +
+        //       "En tot slot realiseerde ik me hoe belangrijk een goede voorbereiding is.",
+        // }
       ],
 
     };
@@ -538,6 +607,7 @@ export default defineComponent({
       localStorage.removeItem('scrollPosition');
     }
     console.log(localStorage.getItem('lan'))
+    window.addEventListener('scroll', this.handleScroll);
 
     this.english = localStorage.getItem('lan') === 'true';
     const wavyLine = this.$refs.wavyLine;
@@ -560,7 +630,9 @@ export default defineComponent({
 
       aboutElement.scrollIntoView({behavior: "smooth"});
     },
-
+    handleScroll (event) {
+      this.getAboutRect();
+    },
     async getContactRect() {
       const contact = await this.$refs.contact;
       if (contact) {
@@ -569,8 +641,11 @@ export default defineComponent({
     },
     async getAboutRect() {
       const about = await this.$refs.about;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+
       if (about) {
         this.aboutPos = about.getBoundingClientRect().top;
+        this.aboutPos =  window.innerHeight /100- this.aboutPos /100  ;
       }
       this.transparentTitle = this.aboutPos < 500;
     },
@@ -590,6 +665,9 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.introduction{
+  text-shadow: #000000 3px 3px 0px;
+}
 .loadIn {
   animation-name: load;
   animation-duration: 500ms;
@@ -634,21 +712,23 @@ export default defineComponent({
 
 
 .about-wrapper {
-  background: #00343d;
-  border-top: #0bd8a2 solid 3px;
+  background: var(--background-color);
+  border-top: var(--main-color) solid 3px;
   top: -3px;
 }
 
 .project-card-wrapper {
+
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  background: #00343d;
+  background: var(--background-color);
 }
 
 .project-list-wrapper {
+
   z-index: 20;
-  top: 0;
+  top: -20px;
   background: rgb(255, 255, 255);
 }
 
@@ -736,8 +816,8 @@ export default defineComponent({
 }
 
 .text-animaton span {
-  --c1: #ec50ef;
-  --c2: #ff8eec;
+  --c1: var(--background-color);
+  --c2: #173616;
 
   --_p: 93% 83.5% at;
   --_g1: radial-gradient(var(--_p) bottom, var(--c1) 79.5%, #0000 80%) no-repeat;
@@ -749,7 +829,7 @@ export default defineComponent({
   -webkit-background-clip: text;
   background-clip: text;
   color: #0000;
-  -webkit-text-stroke: 0.1rem white;
+  -webkit-text-stroke: 0.15rem white;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
   animation: s 2s infinite alternate,

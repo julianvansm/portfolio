@@ -1,13 +1,13 @@
 <template>
   <div  class="project-container-extra gradient shadow p-3 sm:m-8 my-8 rounded-xl flex flex-col items-stretch">
-    <a v-if="project.link" :href="project.link" :target="project.title === 'Portfolio' ? '_self' : '_blank'" class="bg-gray-700 relative rounded">
+    <a v-if="project.link" :href="project.link" :target="project.title === 'Portfolio' ? '_self' : '_blank'" class="relative rounded bg-gray-500">
 
-      <img class="flex justify-center items-center rounded hover:opacity-20" :src="project.image" :alt="project.title"/>
+      <img class="flex justify-center items-center rounded hover:opacity-20 " :src="project.image" :alt="project.title"/>
     </a>
-    <img v-if="!project.link" class="flex justify-center items-center rounded " :src="project.image" :alt="project.title"/>
+    <img v-if="!project.link" class="flex justify-center items-center rounded  " :src="project.image" :alt="project.title"/>
 
     <div class="mt-4 h-full bg-white flex flex-col justify-between rounded-lg overflow-y-auto">
-      <div class=" flex justify-between mb-3 p-2 border-gray-800 border-b-2">
+      <div class=" flex justify-between mb-3 p-2  border-b-2">
 
         <div>
           <h1 class="text-black max-sm:text-2xl text-3xl">{{ project.title }}</h1>
@@ -21,10 +21,10 @@
         </div>
 
       </div>
-<div class="flex flex-grow">
-  <p class="p-2 pt-0 break-words text-lg">{{ project.description }}</p>
+      <div class="flex flex-grow">
+        <p class="p-2 pt-0 break-words text-lg">{{ project.description }}</p>
 
-</div>
+      </div>
     </div>
   </div>
 </template>
@@ -69,10 +69,10 @@ export default {
 <style scoped>
 
 .gradient {
-  background: whitesmoke;
+  background: rgb(255, 255, 255);
 }
 
 .shadow {
-  box-shadow: rgba(131, 131, 131, 0.76) 0 0 8px 7px;
+  box-shadow: var(--third-color) 0 0 8px 0px;
 }
 </style>

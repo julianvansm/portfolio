@@ -4,11 +4,11 @@
 
       <path fill-rule="evenodd" clip-rule="evenodd"
             d="M2004 909C2493 573 2388 475 2666 334 2944 224 2971 304 3290 178 3427.2 115.4 3574.4 132.4 3721.6 149.6L5120 288.6 5120-.2 0-.2 1 1472C1237 1552 1766 1077 2004 909Z  M11 20.5 4 13m0 0 8-8M4 13h16"
-            ref="wavePath" fill="url(#waveGradient)" stroke="#ec50ef" stroke-width="2"/>
+            ref="wavePath" fill="url(#waveGradient)" stroke="white" stroke-width="4"/>
       <defs>
         <linearGradient id="waveGradient" x1="0%" y1="0%" x2="0%" y2="100%">
           <stop offset="0%" stop-color="#fff" />
-          <stop offset="100%" stop-color="#0bd8a2" />
+          <stop offset="100%" stop-color="var(--main-color)" />
         </linearGradient>
       </defs>
     </svg>

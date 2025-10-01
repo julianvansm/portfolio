@@ -2,7 +2,7 @@
 
   <lottie-animation
       style="transform:scale(-1, 1); width: 40%;"
-      path="./about.json"
+      path="./group.json"
   />
 
 </template>

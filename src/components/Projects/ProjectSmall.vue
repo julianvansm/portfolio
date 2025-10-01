@@ -1,7 +1,7 @@
 <template>
 
   <div
-      style="background: #00343d"
+      style="background: var(--background-color)"
       class="w-full overflow-x-hidden h-full pt-10 text-white z-50"
       id="About">
     <button class=" z-50 fixed top-5 left-5" @click="this.unLoad()">

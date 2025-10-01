@@ -1,7 +1,7 @@
 <template>
 
   <div :class="{ 'loadIn': loadIn, 'unLoad': unload }"
-       style="background: #00343d"
+       style="background: var(--background-color)"
        class="fixed top-0 left-0 w-full h-full pt-10 text-white z-50"
        id="About">
     <button class=" z-50 fixed top-5 left-5" v-if="moreInfo === true" @click="this.unLoad()">

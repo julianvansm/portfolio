@@ -3,7 +3,7 @@
   <div class="z-40 w-full text-white font-sans" id="About">
 
     <div style="background: rgb(18, 18, 18)">
-      <div style="background: #00343d" class="overflow-hidden">
+      <div style="background: var(--background-color)" class="overflow-hidden">
         <svg class="animated-border overflow: scroll;" xml:space="preserve" x="0px" y="0px" viewBox="0 0 3841 70">
          <path fill="#121212" fill-opacity="1"
                d="M3360.5 39.0956c-242 0-480-19.35-480-19.35S2647.5.2 2400.5.2s-480 19.35-480 19.35-238 19.5456-480 19.5456-480-19.35-480-19.35S727.5.2 480.5.2.5 19.55.5 19.55V80.2h1920 1920V19.55C3840.5 19.55 3602.5 39.0956 3360.5 39.0956z"
@@ -96,7 +96,7 @@ export default {
   padding-top: 20px;
   width: 200%;
   animation: move-left 20s linear infinite;
-  filter: drop-shadow(-2px -2px 3px #0bd8a2);
+  filter: drop-shadow(-2px -2px 3px var(--main-color));
 }
 
 
