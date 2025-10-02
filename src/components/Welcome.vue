@@ -56,7 +56,7 @@
       </div>
 
     </div>
-    <div ref="about" class="about-wrapper sticky about top-0 min-h-[120vh] flex-col flex items-center justify-center h-screen overflow-y-auto">
+    <div ref="about":style="{ transform: 'translateY(' +  -projectPos*5 + '%)' }" class="introduction about-wrapper sticky about top-0 min-h-[120vh] flex-col flex items-center justify-center h-screen overflow-y-auto">
       <div class="relative top-0 mt-10">
         <div>
           <h2 v-if="english === false"
@@ -76,7 +76,7 @@
           </div>
         </div>
       </div>
-      <div id="about" class="overflow-hidden flex-grow flex items-center justify-evenly flex-col">
+      <div  id="about"  class="overflow-hidden flex-grow flex items-center justify-evenly flex-col">
 
         <AboutSection :english="english" id="About"/>
       </div>
@@ -108,7 +108,7 @@
 
             <div style="background: var(--background-color); " class="box mask last"></div>
           </div>
-          <div class="project-card-wrapper min-h-screen z-20 ">
+          <div class="project-card-wrapper  min-h-screen z-20 ">
             <ProjectCard v-if="english === true" v-for="project in projectsEnglish.slice().reverse()"
                          :key="project.title"
                          :project="project"/>
@@ -153,6 +153,7 @@ export default defineComponent({
   data() {
     return {
       contactPos: 0,
+      projectPos: 0,
       aboutPos: 0,
       english: undefined,
       top: true,
@@ -632,6 +633,7 @@ export default defineComponent({
     },
     handleScroll (event) {
       this.getAboutRect();
+      this.getProjectRect();
     },
     async getContactRect() {
       const contact = await this.$refs.contact;
@@ -641,7 +643,6 @@ export default defineComponent({
     },
     async getAboutRect() {
       const about = await this.$refs.about;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
 
       if (about) {
         this.aboutPos = about.getBoundingClientRect().top;
@@ -653,6 +654,7 @@ export default defineComponent({
       const project = await this.$refs.project;
       if (project) {
         this.projectPos = project.getBoundingClientRect().top;
+          this.projectPos = window.innerHeight / 1000 - this.projectPos / 1000;
       }
     },
     async lan() {

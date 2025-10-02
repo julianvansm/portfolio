@@ -55,7 +55,7 @@
 
     </div>
 
-  <div class="flex justify-start flex-grow flex-col items-start  ">
+  <div style="  text-shadow: none" class="flex justify-start flex-grow flex-col items-start  ">
     <div class="max-w-[80vw] w-[80vw] flex flex-wrap gap-4 max-sm:gap-2 overflow-scroll max-h-[30vh] max-sm:text-sm justify-around bar-remove p-4">
       <div class="bg-white flex  justify-center items-center rounded-xl h-20  max-sm:p-3 sm:min-w-[300px] sm:w-[20vw] w-[30vw] max-w-[300px] max-sm:max-w-[130px] max-sm:min-w-[130px]" style="box-shadow: 3px 3px 5px 1px rgba(0, 0, 0)">
         <p class="flex gap-4 items-center">
