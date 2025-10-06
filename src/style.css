@@ -9,6 +9,7 @@
 :root {
     --main-color: #850cd5;
     --background-color: #2c4e58;
+    /*--background-color: #313742; (backup color)*/
     --third-color: white;
     --fourth-color: #ff8eec;
 }
