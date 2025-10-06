@@ -1,5 +1,5 @@
 <template style="">
-  <animation-tester class="-z-10 overflow-hidden fixed"></animation-tester>
+  <animation-tester   class="bg-[--background-color] -z-10 overflow-hidden fixed"></animation-tester>
 
   <span class="z-50 fixed top-0 right-0 m-2  border-white border-2 rounded overflow-hidden">
         <a class="hover:cursor-pointer" @click="lan()">
@@ -839,6 +839,7 @@ export default defineComponent({
 }
 
 .cat-responsive {
+  filter: drop-shadow(3px 3px 3px var(--main-color));
   transform: translate(0%, -50%)
 }
 
