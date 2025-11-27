@@ -84,7 +84,7 @@
 
 
     <div ref="project"
-         class="relative duration-1000 ">
+         class="relative mt-[400px] duration-1000 ">
       <div class="relative">
         <div style=" border-top: 3px solid var(--main-color); background: var(--background-color)" class="project-list-wrapper">
           <div class="sticky z-30" >
@@ -109,7 +109,7 @@
             <div style="background: var(--background-color); " class="box mask last"></div>
           </div>
           <div class="project-card-wrapper  min-h-screen z-20 ">
-            <ProjectCard v-if="english === true" v-for="project in projectsEnglish.slice().reverse()"
+            <ProjectCard  v-if="english === true" v-for="project in projectsEnglish.slice().reverse()"
                          :key="project.title"
                          :project="project"/>
             <ProjectCard v-if="english === false" v-for="project in projectsDutch.slice().reverse()"
@@ -583,7 +583,8 @@ export default defineComponent({
         //       "En tot slot realiseerde ik me hoe belangrijk een goede voorbereiding is.",
         // }
       ],
-
+      fadeE1: ref(null),
+      isVisible: ref(false),
     };
   },
   components: {
@@ -598,7 +599,9 @@ export default defineComponent({
     localStorage.setItem('scrollPosition', window.scrollY);
 
   },
+
   mounted() {
+
     this.getProjectRect();
     this.getAboutRect();
     this.getContactRect();
@@ -667,6 +670,16 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 .introduction{
   text-shadow: #000000 3px 3px 0px;
 }
