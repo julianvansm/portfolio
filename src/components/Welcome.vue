@@ -141,6 +141,21 @@ import SvgMan from "@/components/SvgMan.vue";
 import anime from "animejs/lib/anime.es.js";
 import AnimationTester from "@/components/AnimationTester.vue";
 
+import { useHead } from '@vueuse/head'
+
+useHead({
+  title: 'Julian van Smirren – Portfolio',
+  meta: [
+    {
+      name: 'description',
+      content: "Welcome to my portfolio. Here you can learn about all the projects and ability's i have"
+    },
+    {
+      name: 'robots',
+      content: 'index, follow'
+    }
+  ]
+})
 function debounce(func, delay) {
   let timeout;
   return (...args) => {

@@ -7,6 +7,7 @@ import AnimationTester from "@/components/AnimationTester.vue";
 import svgMan from "@/components/SvgMan.vue";
 import ProjectSmall from "@/components/Projects/ProjectSmall.vue";
 import ProjectPc from "@/components/Projects/ProjectPc.vue";
+import { createHead } from '@vueuse/head'
 
 const routes = [
     {
@@ -41,5 +42,9 @@ const router = createRouter({
     history: createWebHistory(),
     routes,
 })
+const head = createHead()
 
-createApp(App).use(router).mount('#app')
+createApp(App)
+    .use(router)
+    .use(head)
+    .mount('#app')
