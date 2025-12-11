@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://julian-van-smirren.newdeveloper.nl.com/sitemap.xml
