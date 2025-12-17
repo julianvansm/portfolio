@@ -56,7 +56,7 @@
       </div>
 
     </div>
-    <div ref="about":style="{ transform: 'translateY(' +  -projectPos*5 + '%)' }" class="introduction about-wrapper sticky about top-0 min-h-[120vh] flex-col flex items-center justify-center h-screen overflow-y-auto">
+    <div ref="about" class="introduction about-wrapper sticky about top-0 min-h-[120vh] flex-col flex items-center justify-center h-screen overflow-y-auto">
       <div class="relative top-0 mt-10">
         <div>
           <h2 v-if="english === false"
